@@ -1,25 +1,39 @@
+import React, {Component} from 'react';
 import logo from './logo.svg';
 import './App.css';
+import { Route, Switch, Redirect } from 'react-router-dom';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends Component {
+  state = {
+    user: null,
+  }
+
+  render() {
+    return(
+      <main className="App">
+        {/* this ternary operator asks: is there a user in state? */}
+        {/* if yes, they can see our pages: neworder, etc. */}
+        {/* if no(user is null), show them only the <AuthPage> */}
+        { this.state.user ? 
+          <Switch>
+            <Route path='/orders/new' render={(props) => (
+              <NewOrderPage {...props}/>
+            )}/>
+            <Route path='/orders' render={(props) => (
+              <OrderHistoryPage {...props}/>
+            )}/>
+            <Redirect to="/orders" />
+          </Switch>
+          :
+          <AuthPage setUserInState={this.setUserInState}/>
+        }
+      </main>
+    )
+  }
+
+
+  
 }
+
 
 export default App;
