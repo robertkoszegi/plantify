@@ -1,7 +1,10 @@
 import React, {Component} from 'react';
-import logo from './logo.svg';
+// import logo from './logo.svg';
+import Navigation from './components/Navigation/Navigation'
+import Banner from './components/Banner/Banner'
+import PlantList from './components/PlantList/PlantList'
 import './App.css';
-import { Route, Switch, Redirect } from 'react-router-dom';
+// import { Route, Switch, Redirect } from 'react-router-dom';
 
 class App extends Component {
   state = {
@@ -11,29 +14,13 @@ class App extends Component {
   render() {
     return(
       <main className="App">
-        {/* this ternary operator asks: is there a user in state? */}
-        {/* if yes, they can see our pages: neworder, etc. */}
-        {/* if no(user is null), show them only the <AuthPage> */}
-        { this.state.user ? 
-          <Switch>
-            <Route path='/orders/new' render={(props) => (
-              <NewOrderPage {...props}/>
-            )}/>
-            <Route path='/orders' render={(props) => (
-              <OrderHistoryPage {...props}/>
-            )}/>
-            <Redirect to="/orders" />
-          </Switch>
-          :
-          <AuthPage setUserInState={this.setUserInState}/>
-        }
+        <Navigation />
+        <Banner />
+        <PlantList />
       </main>
     )
   }
 
-
-  
 }
-
 
 export default App;
