@@ -20,7 +20,7 @@ app.use(express.static(path.join(__dirname, 'build')));
 
 
 // Put API routes here, before the "catch all" route
-
+app.use('/api/details', require('./routes/api/details.js'))
 
 // this one is going to do double duty, serving both items and categories-related routes:
 
