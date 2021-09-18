@@ -2,11 +2,12 @@
 
 const express = require('express');
 const router = express.Router();
-const detailCtrl = require('../../controllers/details');
+const plantListCtrl = require('../../controllers/plantList');
 
 // POST new order. Full address will be POST /api/orders
 // router.post('/', orderCtrl.create)
 // GET /api/orders
-router.get('/details', detailCtrl.oneIndex)
+router.get('/', plantListCtrl.index)
+// router.get('/details/:id', plantListCtrl.oneIndex)
 
 module.exports = router;
