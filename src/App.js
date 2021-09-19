@@ -11,8 +11,21 @@ import './App.css';
 class App extends Component {
   state = {
     user: null,
+    plantListings: []
   }
 
+async componentDidMount(){
+    try{
+        let fetchPlantsResponse = await fetch('/api/plantList')
+        if (!fetchPlantsResponse.ok) throw new Error("Could not fetch plants")
+        let plants = await fetchPlantsResponse.json();
+
+        this.setState({ plantListings: plants })
+        console.log(this.state)
+    } catch (err){
+        console.log('Error:', err)
+    }
+}
   render() {
     return(
       <main className="App">
@@ -21,11 +34,11 @@ class App extends Component {
         <Banner />
         <Switch>
         <Route path='/details' render={(props) =>(
-          <PlantDetail />
+          <PlantDetail  />
         )} />
         
         <Route path='/' render={(props) => (
-          <PlantList />
+          <PlantList plantListings={this.state.plantListings}/>
         )} />
         </Switch>
       </main>
