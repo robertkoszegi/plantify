@@ -2,7 +2,7 @@ import React from 'react';
 import Navigation from '../../components/Navigation/Navigation';
 
 
-class OrderHistoryPage extends React.Component {
+class RecommendationsPage extends React.Component {
     state = {
 
     }
@@ -10,15 +10,15 @@ class OrderHistoryPage extends React.Component {
 
     render() {
         return(
-            <main className="OrderHistoryPage">
+            <main className="RecommendationsPage">
                 <nav className="Navigation">
                     <Navigation />
                 </nav>
-                <h1>OrdersPage</h1>
+                <h1>RecommendationsPage</h1>
             </main>
         )
     }
 
 }
 
-export default OrderHistoryPage;
+export default RecommendationsPage;
