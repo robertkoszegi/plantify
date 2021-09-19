@@ -21,18 +21,6 @@ class App extends Component {
     this.setState({user: incomingUserData})
   }
 
-  // async componentDidMount(){
-  //     try{
-  //         let fetchPlantsResponse = await fetch('/api/plantList')
-  //         if (!fetchPlantsResponse.ok) throw new Error("Could not fetch plants")
-  //         let plants = await fetchPlantsResponse.json();
-
-  //         this.setState({ plantListings: plants })
-  //         console.log(this.state)
-  //     } catch (err){
-  //         console.log('Error:', err)
-  //     }
-  // }
   render() {
     return(
       <main className="App">

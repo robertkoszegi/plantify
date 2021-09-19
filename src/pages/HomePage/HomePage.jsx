@@ -15,6 +15,7 @@ class Home extends React.Component {
   // initial state of the app when it first loads
   state = {
     plantCategories: [],
+    plantListings:[],
     activeCategory: "",
     lineItems: [],
     menuItems: [],
@@ -66,6 +67,16 @@ class Home extends React.Component {
     // } catch (err) {
     //   console.error('ERROR:', err) // <-- log if error
     // }
+      try{
+          let fetchPlantsResponse = await fetch('/api/plantList')
+          if (!fetchPlantsResponse.ok) throw new Error("Could not fetch plants")
+          let plants = await fetchPlantsResponse.json();
+
+          this.setState({ plantListings: plants })
+          console.log(this.state)
+      } catch (err){
+          console.log('Error:', err)
+      }
   }
   
   render() {
@@ -74,7 +85,9 @@ class Home extends React.Component {
         <nav className="Navigation">
           <Navigation />
         </nav>
+          <Banner />
         <h1>HomePage</h1>
+        <PlantList plantListings={this.state.plantListings}/>
         {/* <Navigation />
         <Banner />
         <CategoryList categoryItems={this.state.categoryItems}  />
