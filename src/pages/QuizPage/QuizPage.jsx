@@ -1,4 +1,5 @@
 import React from 'react';
+import './QuizPage.css'
 import Navigation from '../../components/Navigation/Navigation';
 import QuizForm from '../../components/QuizForm/QuizForm';
 
