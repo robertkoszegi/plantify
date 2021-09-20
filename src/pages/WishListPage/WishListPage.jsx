@@ -1,5 +1,6 @@
 import React from 'react';
 import Navigation from '../../components/Navigation/Navigation';
+import WhishList from '../../components/WishList/WhishList'
 
 
 class WishListPage extends React.Component {
@@ -15,6 +16,7 @@ class WishListPage extends React.Component {
                     <Navigation />
                 </nav>
                 <h1>WhishListPage</h1>
+                <WhishList />
             </main>
         )
     }

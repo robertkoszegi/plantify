@@ -1,14 +1,11 @@
 import React, {Component} from 'react';
 import { Route, Switch, Redirect } from 'react-router-dom';
-import HomePage from './pages/HomePage/HomePage'
-import OrderHistoryPage from './pages/OrderHistoryPage/OrderHistoryPage'
-import WishListPage from './pages/WishListPage/WishListPage'
-import QuizPage from './pages/QuizPage/QuizPage'
-import RecommendationsPage from './pages/RecommendationsPage/RecommendationsPage'
-// import Navigation from './components/Navigation/Navigation'
-// import Banner from './components/Banner/Banner'
-// import PlantList from './components/PlantList/PlantList'
-// import PlantDetail from './components/PlantDetail/PlantDetail'
+import HomePage from './pages/HomePage/HomePage';
+import OrderHistoryPage from './pages/OrderHistoryPage/OrderHistoryPage';
+import WishListPage from './pages/WishListPage/WishListPage';
+import QuizPage from './pages/QuizPage/QuizPage';
+import RecommendationsPage from './pages/RecommendationsPage/RecommendationsPage';
+import OrderPage from './pages/OrderPage/OrderPage';
 import './App.css';
 import AuthPage from './pages/AuthPage/AuthPage'
 
@@ -38,8 +35,12 @@ class App extends Component {
             <RecommendationsPage {...props}/>
           )}/>
 
+          <Route path='/order' render={(props) => (
+            <OrderPage {...props}/>
+          )}/>
+
           {/* -- These pages are protected -- */}
-          <Route path='/orders' render={(props) => (
+          <Route path='/orderhistory' render={(props) => (
             <OrderHistoryPage {...props} user={this.state.user}/>
           )}/>
 
