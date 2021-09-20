@@ -2,12 +2,15 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import Navigation from '../../components/Navigation/Navigation'
 
-class PlantDetail extends React.Component{
+export default class PlantDetailPage extends React.Component{
+    state={
+        plantDetail:[]
+    }
 
     render(){
         return(
             <main className="PlantDetail">
-                <Navigation />
+                
                 <div>
                     <img src="./majestypalm.jpg" alt="" />
                 </div>

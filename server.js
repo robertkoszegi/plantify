@@ -20,13 +20,15 @@ app.use(express.static(path.join(__dirname, 'build')));
 
 
 // Put API routes here, before the "catch all" route
-
+app.use('/api/details', require('./routes/api/details.js'))
+app.use('/api/plantList', require('./routes/api/plantList.js'))
 
 // this one is going to do double duty, serving both items and categories-related routes:
 
 
 // The following "catch all" route (note the *)is necessary
 // for a SPA's client-side routing to properly work
+// ** MOUNT ANY OTHER ROUTES BEFORE THIS ONE ***
 app.get('/*', function(req, res) {
     res.sendFile(path.join(__dirname, 'build', 'index.html'));
 });

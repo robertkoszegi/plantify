@@ -1,38 +1,12 @@
 import React, {Component} from 'react'
 
 export default class PlantList extends Component {
-    state = [{
-        name: 'Chinese Fan Palm', 
-        price: 39.99,
-        waterFreq: 'Medium',
-        sunCond: 'Full Sun',
-        petFriendly: true,
-        img: './chinesepalm.jpg'
-    },
-    {
-        name: 'Areca Palm', 
-        price: 30.99,
-        waterFreq:'Medium',
-        sunCond:'Full Sun',
-        petFriendly:true,
-        img: './arecapalm.jpg'
-    },
-    {
-        name: 'Majesty Palm', 
-        price: 30.99,
-        waterFreq:'Medium',
-        sunCond:'Full Sun',
-        petFriendly:true,
-        img: './majestypalm.jpg'
-    },
-    
-    
-    ];
+
     render(){
         return(
             <div className="PlantList">
                 <h2>Plants</h2>
-                    {this.state.map(p => <div className="plantItems"><img src={p.img} style={{width:"100px"}}/><br /> {p.name} <br /> {p.waterFreq} <br /> {p.sunCond} <br /> {p.price}</div>)}
+                    {this.props.plantListings.map(p =><div className="plantItems"><img src={p.img} style={{width:"100px"}} alt='plant'/><br /> {p.name} <br /> {p.waterFreq} <br /> {p.sunCond} <br /> {p.price}</div>)}
             </div>
       
           
@@ -44,7 +18,7 @@ export default class PlantList extends Component {
   
   // Must export the component's function (or class)
  
-  
+
 
 
 

@@ -1,26 +1,28 @@
-import "./NewOrderPage.css"
 import React from 'react'
-import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
 import CategoryList from '../../components/CategoryList/CategoryList';
 import PlantList from '../../components/PlantList/PlantList';
-import PlantListItem from '../../components/PlantListItem/PlantListItem';
+// import PlantListItem from '../../components/PlantListItem/PlantListItem';
 import Banner from '../../components/Banner/Banner';
 import Navigation from '../../components/Navigation/Navigation';
-import QuizLink from '../../components/QuizLink/QuizLink';
-import Logo from '../../components/Logo/Logo';
+// import QuizLink from '../../components/QuizLink/QuizLink';
+// import Logo from '../../components/Logo/Logo';
 // import OrderDetail from '../../components/OrderDetail/OrderDetail';
 // import UserLogOut from '../../components/UserLogOut/UserLogOut';
 
-class NewOrderPage extends React.Component {
+class Home extends React.Component {
 
   // initial state of the app when it first loads
   state = {
     plantCategories: [],
+    plantListings:[],
     activeCategory: "",
     lineItems: [],
     menuItems: [],
     categoryItems:[],
   }
+
+  
 
   // add to cart button
   handleAddToCart = (incoming_item) => {    
@@ -65,18 +67,34 @@ class NewOrderPage extends React.Component {
     // } catch (err) {
     //   console.error('ERROR:', err) // <-- log if error
     // }
+      try{
+          let fetchPlantsResponse = await fetch('/api/plantList')
+          if (!fetchPlantsResponse.ok) throw new Error("Could not fetch plants")
+          let plants = await fetchPlantsResponse.json();
+
+          this.setState({ plantListings: plants })
+          console.log(this.state)
+      } catch (err){
+          console.log('Error:', err)
+      }
   }
   
   render() {
     return (
       <main className="HomePage">
-        <Navigation />
+        <nav className="Navigation">
+          <Navigation />
+        </nav>
+          <Banner />
+        <h1>HomePage</h1>
+        <PlantList plantListings={this.state.plantListings}/>
+        {/* <Navigation />
         <Banner />
         <CategoryList categoryItems={this.state.categoryItems}  />
-        <PlantList />
+        <PlantList /> */}
       </main>
     );
   }
 }
 
-export default NewOrderPage;
+export default Home;
