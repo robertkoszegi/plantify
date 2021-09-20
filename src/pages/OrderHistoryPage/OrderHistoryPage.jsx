@@ -1,5 +1,6 @@
 import React from 'react';
 import Navigation from '../../components/Navigation/Navigation';
+import PreviousOrdersList from '../../components/PreviousOrdersList/PreviousOrdersList'
 
 
 class OrderHistoryPage extends React.Component {
@@ -15,6 +16,8 @@ class OrderHistoryPage extends React.Component {
                     <Navigation />
                 </nav>
                 <h1>OrdersPage</h1>
+                <PreviousOrdersList />
+
             </main>
         )
     }

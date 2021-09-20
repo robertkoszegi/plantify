@@ -1,10 +1,12 @@
 import React from 'react';
-import Sin from '../../components/Navigation/Navigation';
+import SignUpForm from '../../components/SingUpForm/SignUpForm';
+import LoginForm from '../../components/LoginForm/LoginForm';
 
 
-class WishListPage extends React.Component {
+
+class AuthPage extends React.Component {
     state = {
-
+        showLogin: true,
     }
 
 
@@ -13,8 +15,12 @@ class WishListPage extends React.Component {
             <main className="WishListPage">
                 
                 <h1>Authentication</h1>
+                <LoginForm />LoginForm
+                <SignUpForm />SignUpForm
             </main>
         )
     }
 
 }
+
+export default AuthPage;
