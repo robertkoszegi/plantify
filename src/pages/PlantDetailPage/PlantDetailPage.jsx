@@ -1,7 +1,7 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
 import Navigation from '../../components/Navigation/Navigation'
-import PlantListItem from '../../components/PlantListItem/PlantListItem';
+// import PlantListItem from '../../components/PlantListItem/PlantListItem';
 
 
 
