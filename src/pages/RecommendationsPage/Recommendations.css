@@ -1,0 +1,28 @@
+.wrapper{
+    margin: 0 auto;
+    padding-top: 75px;
+}
+.Recommendations{
+    background-color: #DBEBE0;
+    border-radius: 25px;
+    margin: 0 100px;
+    padding: 100px 0;
+}
+
+.seeMore{
+    background-color: #FFDFDF;
+    font-size: small;
+    margin: 10px 100px;
+    float:right;
+    
+}
+
+.seeMore > button {
+    display:block;
+    text-align: right;
+    position: relative;
+    bottom: 25px;
+    padding:5px;
+    margin:5px;
+    float: right;
+}
