@@ -1,11 +1,12 @@
 import React, {Component} from 'react';
 import { Route, Switch, Redirect } from 'react-router-dom';
-import HomePage from './pages/HomePage/HomePage';
-import OrderHistoryPage from './pages/OrderHistoryPage/OrderHistoryPage';
-import WishListPage from './pages/WishListPage/WishListPage';
-import QuizPage from './pages/QuizPage/QuizPage';
-import RecommendationsPage from './pages/RecommendationsPage/RecommendationsPage';
-import OrderPage from './pages/OrderPage/OrderPage';
+import HomePage from './pages/HomePage/HomePage'
+import OrderHistoryPage from './pages/OrderHistoryPage/OrderHistoryPage'
+import WishListPage from './pages/WishListPage/WishListPage'
+import QuizPage from './pages/QuizPage/QuizPage'
+import RecommendationsPage from './pages/RecommendationsPage/RecommendationsPage'
+import PlantDetailPage from './pages/PlantDetailPage/PlantDetailPage'
+
 import './App.css';
 import AuthPage from './pages/AuthPage/AuthPage'
 
@@ -25,6 +26,9 @@ class App extends Component {
         <Switch>
           <Route path='/home' render={(props) => (
             <HomePage {...props}/>
+          )}/>
+          <Route path='/details' render={(props) => (
+            <PlantDetailPage {...props}/>
           )}/>
 
           <Route path='/quiz' render={(props) => (

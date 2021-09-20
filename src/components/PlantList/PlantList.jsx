@@ -1,4 +1,5 @@
 import React, {Component} from 'react'
+import PlantListItem from '../PlantListItem/PlantListItem'
 
 export default class PlantList extends Component {
 
@@ -6,20 +7,16 @@ export default class PlantList extends Component {
         return(
             <div className="PlantList">
                 <h2>Plants</h2>
-                    {this.props.plantListings.map(p =><div className="plantItems"><img src={p.img} style={{width:"100px"}} alt='plant'/><br /> {p.name} <br /> {p.waterFreq} <br /> {p.sunCond} <br /> {p.price}</div>)}
+                    {this.props.plantListings.map(p =>
+                        <PlantListItem 
+                        img={p.img}  
+                        name={p.name} 
+                        waterFreq={p.waterFreq} 
+                        sunCond={p.sunCond} 
+                        price={p.price}
+                    />
+                    )}  
             </div>
+        )}}
+
       
-          
-
-        )
-
-        }
-}
-  
-  // Must export the component's function (or class)
- 
-
-
-
-
-  
