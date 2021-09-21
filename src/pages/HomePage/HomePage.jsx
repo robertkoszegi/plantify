@@ -81,8 +81,6 @@ class Home extends React.Component {
         </nav>
 
           <Banner />
-        <h1>HomePage</h1>
-
         {/* <CategoryList /> */}
         <button onClick={() => this.handleCat('6148e261a73b6d074a728570')}>Palms</button>
         <button onClick={() => this.handleCat('6148e261a73b6d074a728572')}>Ferns</button>

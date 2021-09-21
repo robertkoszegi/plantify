@@ -1,6 +1,6 @@
 import React, {Component} from 'react'
-import './PlantList.css'
 import PlantListItem from '../PlantListItem/PlantListItem'
+import './PlantList.css'
 
 export default class PlantList extends Component {
     
@@ -21,11 +21,9 @@ export default class PlantList extends Component {
                 )}  
             </div>
         )
-    }else if(this.props.activeCategory) {
+    } else if(this.props.activeCategory) {
             return(
                 <div className="PlantList">
-                  <h2>Plants</h2>
-
                    {this.props.plantListings.filter(plant =>
                         plant.category === this.props.activeCategory).map(p =>
                         <PlantListItem 

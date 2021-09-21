@@ -1,13 +1,9 @@
 import React from 'react';
 import Navigation from '../../components/Navigation/Navigation';
-import WhishList from '../../components/WishList/WhishList'
+import WishList from '../../components/WishList/WishList'
 
 
 class WishListPage extends React.Component {
-    state = {
-
-    }
-
 
     render() {
         return(
@@ -15,8 +11,8 @@ class WishListPage extends React.Component {
                 <nav className="Navigation">
                     <Navigation />
                 </nav>
-                <h1>WhishListPage</h1>
-                <WhishList />
+                <h1>WishListPage</h1>
+                <WishList wishLineItems={this.props.wishLineItems}/>
             </main>
         )
     }

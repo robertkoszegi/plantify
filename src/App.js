@@ -13,7 +13,8 @@ import AuthPage from './pages/AuthPage/AuthPage'
 class App extends Component {
   state = {
     user: null,
-    lineItems: []
+    lineItems: [],
+    wishLineItems:[],
     
   }
 
@@ -34,6 +35,14 @@ class App extends Component {
     }
     
   }
+  handleAddToWishlist = (incoming_item) => {
+    let wishItemExists = this.state.wishLineItems.some(obj => obj.item.name === incoming_item.name)
+    if(wishItemExists){
+      this.setState({wishLineItems: this.state.wishLineItems.map(obj => obj.item.name === incoming_item.name ? {...obj,qty:obj.qty+1} : obj)})
+    }else {
+      this.setState({wishLineItems: [...this.state.wishLineItems, {qty: 1, item:incoming_item}]})
+    }
+  }
   
 // console.log(this.state.lineItems)
   render() {
@@ -46,7 +55,7 @@ class App extends Component {
           )}/>
 
           <Route path='/details' render={(props) => (
-            <PlantDetailPage {...props} lineItems={this.state.lineItems} handleAddToCart={this.handleAddToCart}/>
+            <PlantDetailPage {...props} lineItems={this.state.lineItems} wishLineItems={this.state.wishLineItems} handleAddToWishlist={this.handleAddToWishlist} handleAddToCart={this.handleAddToCart}/>
           )}/>
 
           <Route path='/quiz' render={(props) => (
@@ -67,7 +76,7 @@ class App extends Component {
           )}/>
 
           <Route path='/wishlist' render={(props) => (
-            <WishListPage {...props} user={this.state.user}/>
+            <WishListPage {...props} wishLineItems={this.state.wishLineItems} user={this.state.user}/>
           )}/>
           {/* -------------------------------- */}
 
