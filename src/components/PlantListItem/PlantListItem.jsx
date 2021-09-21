@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 export default class PlantListItem extends React.Component{
     render(){
         return(
-        <div clasName="PlantListItem">
+        <div className="PlantListItem">
             <Link to={{
                 pathname:"/details",
                 state:{
@@ -14,7 +14,7 @@ export default class PlantListItem extends React.Component{
                     price:this.props.price,
 
                 }
-                }}>Name{this.props.name}</Link>
+                }}>{this.props.name}</Link>
                 {/* Need to insert image tag here, will have to manually insert path into DB */}
             <div>{this.props.price}</div>
         </div>

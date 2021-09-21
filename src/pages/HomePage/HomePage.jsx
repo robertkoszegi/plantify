@@ -1,4 +1,5 @@
 import React from 'react'
+import './HomePage.css'
 // import { Link } from 'react-router-dom';
 import CategoryList from '../../components/CategoryList/CategoryList';
 import PlantList from '../../components/PlantList/PlantList';
@@ -85,8 +86,7 @@ class Home extends React.Component {
         <nav className="Navigation">
           <Navigation />
         </nav>
-          <Banner />
-        <h1>HomePage</h1>
+        <Banner />
         <PlantList plantListings={this.state.plantListings}/>
         {/* <Navigation />
         <Banner />

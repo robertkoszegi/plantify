@@ -1,4 +1,5 @@
 import React, {Component} from 'react'
+import './PlantList.css'
 import PlantListItem from '../PlantListItem/PlantListItem'
 
 export default class PlantList extends Component {
@@ -6,7 +7,6 @@ export default class PlantList extends Component {
     render(){
         return(
             <div className="PlantList">
-                <h2>Plants</h2>
                     {this.props.plantListings.map(p =>
                         <PlantListItem 
                         img={p.img}  

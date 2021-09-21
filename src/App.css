@@ -1,5 +1,7 @@
+@import url('https://fonts.googleapis.com/css2?family=Overpass:wght@400;700&display=swap');
+
 .App {
-  text-align: center;
+  font-family: 'Overpass', sans-serif;
 }
 
 .App-logo {
@@ -27,35 +29,3 @@
 .App-link {
   color: #61dafb;
 }
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-.PlantList{
-  margin: 50px auto;
-}
-
-.Banner{
-  height: 35vh;
-  border: 1px solid black;  
-}
-
-.plantItems{
-  padding: 25px;
-  margin: 25 auto;
-  text-align: left;
-  float: left;
-}
-
-.Navigation{
-  border: 1px solid black;
-}
-
-
-/* for now dropdown menu, prototype purposes */

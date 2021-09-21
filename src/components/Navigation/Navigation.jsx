@@ -5,13 +5,14 @@ import './Navigation.css'
 
 function Navigation(props) {
     return (
-      <div className="Navigation">
+      <div className="navigationContent">
         <Link to="/home"> Plants </Link>
         <Link to="/quiz"> Take the plant quiz! </Link>
         {/* User AUTH will affect what shows, we'll need some conditionals */}
         <Link to="/wishlist"> WishList </Link>
-        <Link to="/recommendations"> Recommended for you </Link><br />
+        <Link to="/recommendations"> Recommended for you </Link>
         {/* Do we have a login page? */}
+        <Link to='/#'><img src="./user.png" style={{width:15}} alt="" /></Link>
       </div>
     );
   }
