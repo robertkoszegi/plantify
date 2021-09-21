@@ -8,8 +8,10 @@ export default class PlantList extends Component {
         if(this.props.activeCategory === ''){
         return(
             <div className="PlantList">
+
                 {this.props.plantListings.map(p =>
                     <PlantListItem 
+                    key={p.name}
                     img={p.img}  
                     name={p.name} 
                     waterFreq={p.waterFreq} 

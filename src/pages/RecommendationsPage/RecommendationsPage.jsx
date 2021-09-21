@@ -1,11 +1,33 @@
 import React from 'react';
 import Navigation from '../../components/Navigation/Navigation';
 import './Recommendations.css'
+import PlantList from '../../components/PlantList/PlantList';
 
 class RecommendationsPage extends React.Component {
     state = {
-        // drill recommendations to populate recco div
+        plantListings: []
     }
+
+    async componentDidMount() {
+          try{
+            let requestData = JSON.stringify(this.props.location.state);
+
+            let requestHeaders = new Headers();
+            requestHeaders.append('Content-Type', 'application/json');
+
+            let fetchPlantsResponse = await fetch('/api/recommendations', {
+                method: 'POST',
+                headers: requestHeaders,
+                body: requestData
+            });
+            if (!fetchPlantsResponse.ok) throw new Error("Could not fetch plants")
+            let plants = await fetchPlantsResponse.json();
+
+            this.setState({ plantListings: plants })
+          } catch (err){
+              console.log('Error:', err)
+          }
+      }
 
 
     render() {
@@ -18,15 +40,8 @@ class RecommendationsPage extends React.Component {
                     <h2>Based on your answers we recommend...</h2>
                     <div className="Recommendations">
                         <h3>Your Plant Picks!</h3>
-                        {/* {this.props.recommendations.map}(p =>
-                            <div className="plantItems">
-                            <img src={p.img} 
-                            style={{width:"100px"}} 
-                            alt='plant'/><br /> 
-                            {p.name} <br /> 
-                            {p.waterFreq} <br /> 
-                            {p.sunCond} <br /> 
-                            {p.price}</div>)} */}
+                        <PlantList  plantListings={this.state.plantListings}/>
+                        
                     </div>
                     <div className="seeMore">
                         <p>Save your preferences, build a wishlist, review pas orders and recieve ongoing plant care support by signing up with us</p>
