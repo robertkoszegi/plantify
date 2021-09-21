@@ -1,25 +1,45 @@
 import React, {Component} from 'react'
+import './PlantList.css'
+import PlantListItem from '../PlantListItem/PlantListItem'
 
 export default class PlantList extends Component {
-
+    
     render(){
+        if(this.props.activeCategory === ''){
         return(
             <div className="PlantList">
-                <h2>Plants</h2>
-                    {this.props.plantListings.map(p =><div className="plantItems" key={p.name}><img src={p.img} style={{width:"100px"}} alt='plant'/><br /> {p.name} <br /> {p.waterFreq} <br /> {p.sunCond} <br /> {p.price}</div>)}
+
+                {this.props.plantListings.map(p =>
+                    <PlantListItem 
+                    key={p.name}
+                    img={p.img}  
+                    name={p.name} 
+                    waterFreq={p.waterFreq} 
+                    sunCond={p.sunCond} 
+                    price={p.price}
+                />
+                )}  
             </div>
-      
-          
-
         )
+    }else if(this.props.activeCategory) {
+            return(
+                <div className="PlantList">
+                  <h2>Plants</h2>
 
+                   {this.props.plantListings.filter(plant =>
+                        plant.category === this.props.activeCategory).map(p =>
+                        <PlantListItem 
+                        img={p.img}  
+                        name={p.name} 
+                        waterFreq={p.waterFreq} 
+                        sunCond={p.sunCond} 
+                        price={p.price}
+                    />
+                    )}  
+                    </div>
+            )
         }
+    }
 }
-  
-  // Must export the component's function (or class)
- 
 
-
-
-
-  
+      

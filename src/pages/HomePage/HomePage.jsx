@@ -1,8 +1,8 @@
 import React from 'react'
+import './HomePage.css'
 // import { Link } from 'react-router-dom';
-import CategoryList from '../../components/CategoryList/CategoryList';
+// import CategoryList from '../../components/CategoryList/CategoryList';
 import PlantList from '../../components/PlantList/PlantList';
-// import PlantListItem from '../../components/PlantListItem/PlantListItem';
 import Banner from '../../components/Banner/Banner';
 import Navigation from '../../components/Navigation/Navigation';
 // import QuizLink from '../../components/QuizLink/QuizLink';
@@ -17,12 +17,12 @@ class Home extends React.Component {
     plantCategories: [],
     plantListings:[],
     activeCategory: "",
-    lineItems: [],
-    menuItems: [],
-    categoryItems:[],
   }
 
-  
+  handleCat = (activeCategory) =>{
+    this.setState({activeCategory});
+    console.log(this.state)
+}
 
   // add to cart button
   handleAddToCart = (incoming_item) => {    
@@ -69,10 +69,13 @@ class Home extends React.Component {
     // }
       try{
           let fetchPlantsResponse = await fetch('/api/plantList')
+          let fetchCatsResponse = await fetch('/api/plantList/categories')
+          let plants = await fetchPlantsResponse.json()
+          let cats = await fetchCatsResponse.json()
+          
           if (!fetchPlantsResponse.ok) throw new Error("Could not fetch plants")
-          let plants = await fetchPlantsResponse.json();
-
-          this.setState({ plantListings: plants })
+          if (!fetchCatsResponse.ok) throw new Error("Could not fetch categories")
+          this.setState({ plantListings: plants, plantCategories: cats })
           console.log(this.state)
       } catch (err){
           console.log('Error:', err)
@@ -85,13 +88,18 @@ class Home extends React.Component {
         <nav className="Navigation">
           <Navigation />
         </nav>
+
           <Banner />
         <h1>HomePage</h1>
-        <PlantList plantListings={this.state.plantListings}/>
-        {/* <Navigation />
-        <Banner />
-        <CategoryList categoryItems={this.state.categoryItems}  />
-        <PlantList /> */}
+        {/* <CategoryList /> */}
+        <button onClick={() => this.handleCat('6148e261a73b6d074a728570')}>Palms</button>
+        <button onClick={() => this.handleCat('6148e261a73b6d074a728572')}>Ferns</button>
+        <button onClick={() => this.handleCat('6148e261a73b6d074a728571')}>Succulents</button>
+        <button onClick={() => this.handleCat('6148e261a73b6d074a728573')}>Vines</button>
+        <button onClick={() => this.handleCat('6148e261a73b6d074a728574')}>Cacti</button>
+        <button onClick={() => this.handleCat('')}>All</button>
+        <PlantList plantListings={this.state.plantListings} activeCategory={this.state.activeCategory}/>
+
       </main>
     );
   }

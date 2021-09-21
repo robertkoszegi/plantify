@@ -1,13 +1,14 @@
-// import the Order Model. I'm calling this OrderModel for clarity, but typically this variable is called Order
 const PlantModel = require('../models/plant.js'); 
+const CatModel = require('../models/category.js');
 
 module.exports = {
     index,
+    catIndex,
 }
 
 async function index(req, res) {
   try {
-    
+    // 1. grab all items from DB, 
     let plants = await PlantModel.find({}).exec();
     
     res.status(200).json(plants)         
@@ -16,5 +17,12 @@ async function index(req, res) {
   }
 }
 
-
+async function catIndex(req, res){
+  try {
+    let cats = await CatModel.find({}).exec();
+    res.status(200).json(cats)
+  } catch(err) {
+    res.status(400).json(err);
+  }
+}
 

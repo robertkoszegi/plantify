@@ -5,10 +5,11 @@ import OrderHistoryPage from './pages/OrderHistoryPage/OrderHistoryPage'
 import WishListPage from './pages/WishListPage/WishListPage'
 import QuizPage from './pages/QuizPage/QuizPage'
 import RecommendationsPage from './pages/RecommendationsPage/RecommendationsPage'
+import PlantDetailPage from './pages/PlantDetailPage/PlantDetailPage'
+
 // import Navigation from './components/Navigation/Navigation'
 // import Banner from './components/Banner/Banner'
 // import PlantList from './components/PlantList/PlantList'
-// import PlantDetail from './components/PlantDetail/PlantDetail'
 import './App.css';
 import AuthPage from './pages/AuthPage/AuthPage'
 
@@ -28,6 +29,9 @@ class App extends Component {
         <Switch>
           <Route path='/home' render={(props) => (
             <HomePage {...props}/>
+          )}/>
+          <Route path='/details' render={(props) => (
+            <PlantDetailPage {...props}/>
           )}/>
 
           <Route path='/quiz' render={(props) => (
