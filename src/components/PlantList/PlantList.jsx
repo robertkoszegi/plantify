@@ -7,16 +7,17 @@ export default class PlantList extends Component {
     render(){
         if(this.props.activeCategory === ''){
         return(
-
-            this.props.plantListings.map(p =>
-                <PlantListItem 
-                img={p.img}  
-                name={p.name} 
-                waterFreq={p.waterFreq} 
-                sunCond={p.sunCond} 
-                price={p.price}
-            />
-            )  
+            <div className="PlantList">
+                {this.props.plantListings.map(p =>
+                    <PlantListItem 
+                    img={p.img}  
+                    name={p.name} 
+                    waterFreq={p.waterFreq} 
+                    sunCond={p.sunCond} 
+                    price={p.price}
+                />
+                )}  
+            </div>
         )
     }else if(this.props.activeCategory) {
             return(
