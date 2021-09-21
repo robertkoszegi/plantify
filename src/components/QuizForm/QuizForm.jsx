@@ -21,20 +21,11 @@ function QuizForm(props){
         });
       }
 
-      // function handleSubmit(e){
-      //   e.preventDefault();
-      //   Router.push({
-      //     pathname: '/recommendations/show',
-      //     quiz: {
-      //       id: 7,
-      //       color: 'green'
-      //     }
-      //   })
-      // }
+
   
     return (
       <form >
-      {/* onSubmit={handleSubmit} */}
+      
       <span>How much sun exposure can you give your plant?</span>
         <div className="radio">
           <label>

@@ -5,6 +5,8 @@ module.exports = {
 }
 
 async function index(req, res) {
+   
+
   try {
     // grab all plants from db that match quiz answers
     let plants = await PlantModel.find({
