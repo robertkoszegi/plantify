@@ -12,9 +12,9 @@ export default class PlantListItem extends React.Component{
                     waterFreq:this.props.waterFreq,
                     sunCond:this.props.sunCond,
                     price:this.props.price,
-
                 }
                 }}>{this.props.name}</Link>
+
                 {/* Need to insert image tag here, will have to manually insert path into DB */}
             <div>{this.props.price}</div>
         </div>

@@ -17,6 +17,9 @@ class Home extends React.Component {
     plantCategories: [],
     plantListings:[],
     activeCategory: "",
+    menuItems: [],
+    categoryItems:[],
+
   }
 
   handleCat = (activeCategory) =>{
@@ -24,18 +27,6 @@ class Home extends React.Component {
     console.log(this.state)
 }
 
-  // add to cart button
-  handleAddToCart = (incoming_item) => {    
-    // let itemAlreadyExistsInCart = this.state.lineItems.some(obj => obj.item.name === incoming_item.name)
-    // if (itemAlreadyExistsInCart) {
-    //   // if item already exists in cart, increment quantity in the fanciest way possible: map + ternary operator to replace the object in question.
-    //   // YOU DO: replace with a simple, readable, debuggable for loop.
-    //   this.setState({lineItems: this.state.lineItems.map(obj => obj.item.name === incoming_item.name ? {...obj,qty:obj.qty+1} : obj)})
-    // } else {
-    //   // if item doesn't exist in cart, copy over existing cart + stick incoming_item in
-    //   this.setState({lineItems: [...this.state.lineItems,{qty:1,item:incoming_item}]})
-    // }
-  }
 
   // send cart to server
   handleCheckout = async () => {
@@ -91,6 +82,7 @@ class Home extends React.Component {
 
           <Banner />
         <h1>HomePage</h1>
+
         {/* <CategoryList /> */}
         <button onClick={() => this.handleCat('6148e261a73b6d074a728570')}>Palms</button>
         <button onClick={() => this.handleCat('6148e261a73b6d074a728572')}>Ferns</button>

@@ -11,6 +11,11 @@ export default class PlantDetailPage extends React.Component{
     }
     componentDidMount(){
     }
+
+    // handleAddToCart = (incoming_item) => {
+    //     let itemAlreadyExistsInCart = this.state.lineItem
+    // }
+
     render(){
         return(
             <main className="PlantDetail">
@@ -22,7 +27,7 @@ export default class PlantDetailPage extends React.Component{
                     $ {this.state.data.price}
                 </div>
                 {/* Add Cart Functionality here */}
-                <button>Add to cart</button>
+                <button onClick={()=>{this.props.handleAddToCart(this.state.data)}}>Add to cart</button>
             </main>
         )
     }
