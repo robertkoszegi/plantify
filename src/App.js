@@ -34,8 +34,8 @@ class App extends Component {
             <QuizPage {...props}/>
           )}/>
 
-          <Route path='/recommendations' render={(props) => (
-            <RecommendationsPage {...props}/>
+          <Route path='/recommendations/show' render={(props) => (
+            <RecommendationsPage {...props} />
           )}/>
 
           {/* -- These pages are protected -- */}

@@ -7,12 +7,14 @@ module.exports = {
 
 async function index(req, res) {
   try {
-    // 1. grab all items from DB, sorted by date descending (being fancy!)
+    
     let plants = await PlantModel.find({}).exec();
-    // 2. send to frontend
+    
     res.status(200).json(plants)         
   } catch(err) {
     res.status(400).json(err);
   }
 }
+
+
 

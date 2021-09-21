@@ -1,192 +1,10 @@
-// import { Component } from 'react';
-
-
-// class QuizForm extends Component {
-//     state = {
-
-//     }
-
-//     handleChange = (evt) => {
-
-//     };
-
-//     handleSubmit = async (evt) => {
-
-//     };
-
-//     render() {
-//         return(
-//             <div className="form-container" >
-//                 Form Content
-//             </div>
-//         )
-//     }
-// }
-
-// export default QuizForm
-
-
-// ---------------------------------- old code below 
-
-// import React, { Component } from "react";
-
-// class QuizForm extends Component {
-//   constructor() {
-//     super();
-//     this.state = {
-//       sun: "",
-//       price: "",
-//       water: "",
-//     };
-//     this.onValueChange = this.onValueChange.bind(this);
-//     this.formSubmit = this.formSubmit.bind(this);
-//   }
-
-//   onValueChange(event) {
-//     this.setState({
-//       selectedOption: event.target.value,
-//       selectedOption2: event.target.value
-//     });
-//   }
-
-//   formSubmit(event) {
-//     event.preventDefault();
-//     console.log(this.state.selectedOption)
-//   }
-
-//   render() {
-//     return (
-//       <form onSubmit={this.formSubmit}>
-//       <span>How much sun exposure can you give your plant?</span>
-//         <div className="radio">
-//           <label>
-//             <input name="sun"
-//               type="radio"
-//               value="Shade"
-//               checked={this.state.selectedOption === "Shade"}
-//               onChange={this.onValueChange}
-//             />
-//             Shade
-//           </label>
-//         </div>
-//         <div className="radio">
-//           <label>
-//             <input name="sun"
-//               type="radio"
-//               value="Partial Sun"
-//               checked={this.state.selectedOption === "Partial Sun"}
-//               onChange={this.onValueChange}
-//             />
-//             Partial Sun
-//           </label>
-//         </div>
-
-//         <div className="radio">
-//         <label>
-//             <input name="sun"
-//               type="radio"
-//               value="Full Sun"
-//               checked={this.state.selectedOption === "Full Sun"}
-//               onChange={this.onValueChange}
-//             />
-//             Full Sun
-//           </label>
-//         </div>
-//         <span>What is the price range for your plant?</span>
-//         <div className="radio">
-//           <label>
-//             <input name="price"
-//               type="radio"
-//               value="$0-20"
-//               checked={this.state.selectedOption2 === "0-20"}
-//               onChange={this.onValueChange}
-//             />
-//             $0 - $20
-//           </label>
-//         </div>
-//         <div className="radio">
-//           <label>
-//             <input name="price"
-//               type="radio"
-//               value="$20-40"
-//               checked={this.state.selectedOption2 === "$21-40"}
-//               onChange={this.onValueChange}
-//             />
-//             $20 - $40
-//           </label>
-//         </div>
-
-//         <div className="radio">
-//         <label>
-//             <input name="price"
-//               type="radio"
-//               value="$40 and above"
-//               checked={this.state.selectedOption2 === "$40 and above"}
-//               onChange={this.onValueChange}
-//             />
-//             $40 and above
-//           </label>
-//         </div>
-
-//         <span>What watering frequency can you manage for your plant?</span>
-//         <div className="radio">
-//           <label>
-//             <input name="water"
-//               type="radio"
-//               value="Low"
-//               checked={this.state.selectedOption2 === "Low"}
-//               onChange={this.onValueChange}
-//             />
-//             Low
-//           </label>
-//         </div>
-//         <div className="radio">
-//           <label>
-//             <input name="water"
-//               type="radio"
-//               value="Medium"
-//               checked={this.state.selectedOption2 === "Medium"}
-//               onChange={this.onValueChange}
-//             />
-//             Medium
-//           </label>
-//         </div>
-
-//         <div className="radio">
-//         <label>
-//             <input name="water"
-//               type="radio"
-//               value="High"
-//               checked={this.state.selectedOption2 === "High"}
-//               onChange={this.onValueChange}
-//             />
-//             High
-//           </label>
-//         </div>
-
-//         <div>
-//           Selected sun option is : {this.state.selectedOption}
-//           <br />
-//           Selected Price Option is :  {this.state.selectedOption2}
-//         </div>
-//         <button className="btn btn-default" type="submit">
-//           Submit
-//         </button>
-//       </form>
-//     );
-//   }
-// }
-
-// export default QuizForm;
-
-
-
-
-// ---------------------------------- new code 
-
 import React, { Component } from "react";
+import {
+    Link
+  } from "react-router-dom";
 
-function QuizForm(){
+ 
+function QuizForm(props){
 
     const [state, setState] = React.useState({
         sun: "",
@@ -202,9 +20,21 @@ function QuizForm(){
           [evt.target.name]: value
         });
       }
+
+      // function handleSubmit(e){
+      //   e.preventDefault();
+      //   Router.push({
+      //     pathname: '/recommendations/show',
+      //     quiz: {
+      //       id: 7,
+      //       color: 'green'
+      //     }
+      //   })
+      // }
   
     return (
-      <form>
+      <form >
+      {/* onSubmit={handleSubmit} */}
       <span>How much sun exposure can you give your plant?</span>
         <div className="radio">
           <label>
@@ -241,41 +71,8 @@ function QuizForm(){
             Full Sun
           </label>
         </div>
-        <span>What is the price range for your plant?</span>
-        {/* <div className="radio">
-          <label>
-            <input name="price"
-              type="radio"
-              value="$0-20"
-              checked={state.price === "$0-20"}
-              onChange={handleChange}
-            />
-            $0 - $20
-          </label>
-        </div>
-        <div className="radio">
-          <label>
-            <input name="price"
-              type="radio"
-              value="$21-40"
-              checked={state.price === "$21-40"}
-              onChange={handleChange}
-            />
-            $20 - $40
-          </label>
-        </div>
-
-        <div className="radio">
-        <label>
-            <input name="price"
-              type="radio"
-              value="$40 and above"
-              checked={state.price === "$40 and above"}
-              onChange={handleChange}
-            />
-            $40 and above
-          </label>
-        </div> */}
+        <span>What is the maximum price you would pay for a plant?</span>
+       
         <div className="radio">
           <label>
             <input
@@ -324,7 +121,7 @@ function QuizForm(){
           </label>
         </div>
 
-        <span>Do you want a pet friendly plant?</span>
+        <span>Do you need a pet friendly plant?</span>
         <div className="radio">
           <label>
             <input name="pet"
@@ -357,9 +154,14 @@ function QuizForm(){
           <br />
           Selected Pet Option is :  {state.pet}
         </div>
-        <button className="btn btn-default" type="submit">
+        {/* <button className="btn btn-default" type="submit">
           Submit
-        </button>   
+        </button>    */}
+        <Link to={{
+            pathname: '/recommendations/show',
+            search: '',
+            state: state
+          }}> Submit </Link>
       </form>
     );
   }
