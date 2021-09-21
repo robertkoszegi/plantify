@@ -1,3 +1,17 @@
-Link{
+
+.navigationContent{
+    padding: 20px;
+    text-align: center;
+  }
+  
+.navigationContent > a {
+    text-decoration: none;
+    color: #516065;
+    margin-top: 75px;
     padding: 20px 25px;
+    font-size: 15px;
+  }
+
+.navigationContent > a:hover {
+    background-color:rgb(196, 196, 196);
 }

@@ -1,4 +1,5 @@
 import React from 'react'
+import './HomePage.css'
 // import { Link } from 'react-router-dom';
 // import CategoryList from '../../components/CategoryList/CategoryList';
 import PlantList from '../../components/PlantList/PlantList';
@@ -87,6 +88,7 @@ class Home extends React.Component {
         <nav className="Navigation">
           <Navigation />
         </nav>
+
           <Banner />
         <h1>HomePage</h1>
         {/* <CategoryList /> */}
@@ -97,10 +99,7 @@ class Home extends React.Component {
         <button onClick={() => this.handleCat('6148e261a73b6d074a728574')}>Cacti</button>
         <button onClick={() => this.handleCat('')}>All</button>
         <PlantList plantListings={this.state.plantListings} activeCategory={this.state.activeCategory}/>
-        {/* <Navigation />
-        <Banner />
-        <CategoryList categoryItems={this.state.categoryItems}  />
-        <PlantList /> */}
+
       </main>
     );
   }

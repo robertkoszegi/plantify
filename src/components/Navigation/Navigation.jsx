@@ -16,6 +16,7 @@ render(){
       {/* User AUTH will affect what shows, we'll need some conditionals */}
       <Link to="/wishlist"> WishList </Link>
       <Link to="/recommendations"> Recommended for you </Link><br />
+      <Link to='/#'><img src="./user.png" style={{width:15}} alt="" /></Link>
       {/* Do we have a login page? */}
     </div>
   );

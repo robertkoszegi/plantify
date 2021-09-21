@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 export default class PlantListItem extends React.Component{
     render(){
         return(
-        <div clasName="PlantListItem">
+        <div className="PlantListItem">
             <Link to={{
                 pathname:"/details",
                 state:{

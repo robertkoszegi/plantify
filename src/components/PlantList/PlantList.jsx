@@ -1,14 +1,13 @@
 import React, {Component} from 'react'
+import './PlantList.css'
 import PlantListItem from '../PlantListItem/PlantListItem'
 
 export default class PlantList extends Component {
     
     render(){
-        <main>
-        
-        </main>
         if(this.props.activeCategory === ''){
         return(
+
             this.props.plantListings.map(p =>
                 <PlantListItem 
                 img={p.img}  
