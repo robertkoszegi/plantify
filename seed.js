@@ -22,7 +22,7 @@ const PlantModel = require('./models/plant');
         category: categories[0], 
         price: 39.99,
         waterFreq: 'Medium',
-        sunCond: 'Full Sun',
+        sunCond: ['Full Sun'],
         petFriendly: true,
     },
     {
@@ -30,7 +30,7 @@ const PlantModel = require('./models/plant');
         category: categories[0], 
         price: 30.99,
         waterFreq:'Medium',
-        sunCond:'Full Sun',
+        sunCond:['Full Sun'],
         petFriendly:true,
     },
     {
@@ -38,7 +38,7 @@ const PlantModel = require('./models/plant');
         category: categories[0], 
         price: 30.99,
         waterFreq:'Medium',
-        sunCond:'Full Sun',
+        sunCond:['Full Sun'],
         petFriendly:true,
     },
     {
@@ -46,7 +46,7 @@ const PlantModel = require('./models/plant');
         category: categories[0], 
         price: 25.99,
         waterFreq:'Medium',
-        sunCond:'Partial Sun',
+        sunCond:['Partial Sun'],
         petFriendly:true,
     },
     {
@@ -54,7 +54,7 @@ const PlantModel = require('./models/plant');
         category: categories[0], 
         price: 15.99,
         waterFreq:'Medium',
-        sunCond:'Full Sun',
+        sunCond:['Full Sun'],
         petFriendly:true,
     },
     {
@@ -62,14 +62,14 @@ const PlantModel = require('./models/plant');
         category: categories[1],
         price: 10.99,
         waterFreq:'Medium',
-        sunCond:'Full Sun',
+        sunCond:['Full Sun'],
         petFriendly:false,},
     {
         name: 'Aloe Vera', 
         category: categories[1], 
         price: 17.99,
         waterFreq:'Low',
-        sunCond:'Full and Partial Sun',
+        sunCond:['Full','Partial Sun'],
         petFriendly:false,
     },
     {
@@ -77,7 +77,7 @@ const PlantModel = require('./models/plant');
         category: categories[1], 
         price: 20.99,
         waterFreq:'Low',
-        sunCond:'Full and Partial Sun',
+        sunCond:['Full','Partial Sun'],
         petFriendly:true,
     },
     {
@@ -85,7 +85,7 @@ const PlantModel = require('./models/plant');
         category: categories[1], 
         price: 25.99,
         waterFreq:'Low',
-        sunCond:'Full Sun',
+        sunCond:['Full Sun'],
         petFriendly:true,
     },
     {
@@ -93,7 +93,7 @@ const PlantModel = require('./models/plant');
         category: categories[1], 
         price: 27.99,
         waterFreq:'Low',
-        sunCond:'Full and Partial Sun',
+        sunCond:['Full', 'Partial Sun'],
         petFriendly:true,
     },
     {
@@ -101,14 +101,14 @@ const PlantModel = require('./models/plant');
         category: categories[2],
         price: 20.99,
         waterFreq:'High',
-        sunCond:'Partial Sun',
+        sunCond:['Partial Sun'],
         petFriendly:true,
     },
     {
         name: 'Maidenhair Fern',
         category: categories[2],
         price: 20.99,
-        sunCond:'Partial Sun',
+        sunCond:['Partial Sun'],
         waterFreq:'Medium',
         petFriendly:true,
     },
@@ -117,7 +117,7 @@ const PlantModel = require('./models/plant');
         category: categories[2],
         price: 20.99,
         waterFreq:'High',
-        sunCond:'Partial Sun',
+        sunCond:['Partial Sun'],
         petFriendly:true,
     },
     {
@@ -125,7 +125,7 @@ const PlantModel = require('./models/plant');
         category: categories[2],
         price: 20.99,
         waterFreq:'High',
-        sunCond:'Partial Sun',
+        sunCond:['Partial Sun'],
         petFriendly:true,
     },
     {
@@ -133,7 +133,7 @@ const PlantModel = require('./models/plant');
         category: categories[2],
         price: 20.99,
         waterFreq:'Medium',
-        sunCond:'Partial Sun',
+        sunCond:['Partial Sun'],
         petFriendly:true,
     },
     {
@@ -141,7 +141,7 @@ const PlantModel = require('./models/plant');
         category: categories[3],
         price: 30.99,
         waterFreq:'Low',
-        sunCond:'Partial Sun',
+        sunCond:['Partial Sun'],
         petFriendly:false,
     },
     {
@@ -149,7 +149,7 @@ const PlantModel = require('./models/plant');
         category: categories[3],
         price: 30.99,
         waterFreq:'Medium',
-        sunCond:'Shade',
+        sunCond:['Shade'],
         petFriendly:false,
     },
     {
@@ -157,7 +157,7 @@ const PlantModel = require('./models/plant');
         category: categories[3],
         price: 34.99,
         waterFreq:'Low',
-        sunCond:'Shade and Partial Sun',
+        sunCond:['Shade','Partial Sun'],
         petFriendly:false,
     },
     {
@@ -165,7 +165,7 @@ const PlantModel = require('./models/plant');
         category: categories[3],
         price: 38.99,
         waterFreq:'Medium',
-        sunCond:'Shade and Partial Sun',
+        sunCond:['Shade','Partial Sun'],
         petFriendly:true,
     },
     {
@@ -173,7 +173,7 @@ const PlantModel = require('./models/plant');
         category: categories[3],
         price: 38.99,
         waterFreq:'High',
-        sunCond:'Partial Sun',
+        sunCond:['Partial Sun'],
         petFriendly:false,
     },
     {
@@ -181,7 +181,7 @@ const PlantModel = require('./models/plant');
         category: categories[4],
         price: 25.99,
         waterFreq:'Low',
-        sunCond:'Full Sun',
+        sunCond:['Full Sun'],
         petFriendly:false,
     },
     {
@@ -189,7 +189,7 @@ const PlantModel = require('./models/plant');
         category: categories[4],
         price: 25.99,
         waterFreq:'Low',
-        sunCond:'Full Sun',
+        sunCond:['Full Sun'],
         petFriendly:false,
     },
     {
@@ -197,7 +197,7 @@ const PlantModel = require('./models/plant');
         category: categories[4],
         price: 39.99,
         waterFreq:'Low',
-        sunCond:'Full Sun',
+        sunCond:['Full Sun'],
         petFriendly:false,
     },
     {
@@ -205,7 +205,7 @@ const PlantModel = require('./models/plant');
         category: categories[4],
         price: 25.99,
         waterFreq:'Low',
-        sunCond:'Full Sun',
+        sunCond:['Full Sun'],
         petFriendly:true,
     },
     

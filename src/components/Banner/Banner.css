@@ -1,0 +1,32 @@
+.Banner{
+    max-width: 100%;
+    overflow: hidden;
+    height: 50vh;
+}
+.Banner > img{
+    position:relative;
+    z-index: -1;
+    top:0;
+    left:0; 
+}
+.bannerLine > a {
+    text-decoration: none;
+    color: white;
+}
+.bannerLine > a:hover{
+    color: rgb(245, 181, 224);
+}
+.bannerText{
+    position:absolute;
+    top: 200px;
+    left: 25px;
+    z-index: 2;
+    color:white;
+}
+.bannerLine{
+    position:absolute;
+    top: 250px;
+    left: 55px;
+    z-index: 2;
+    color:white;
+}

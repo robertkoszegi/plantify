@@ -16,8 +16,8 @@ class QuizPage extends React.Component {
                 <nav className="Navigation">
                     <Navigation />
                 </nav>
-                <h1>QuizPage</h1>
-                <QuizForm />QuizForm
+                <h1>Quiz Page</h1>
+                <QuizForm />
             </main>
         )
     }

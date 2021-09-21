@@ -14,15 +14,15 @@ app.use(express.json());
 
 // Configure both serve-favicon & static middlewares
 // to serve from the production 'build' folder
-app.use(favicon(path.join(__dirname, 'build', 'favicon.ico')));
+// app.use(favicon(path.join(__dirname, 'build', 'favicon.ico')));
 app.use(express.static(path.join(__dirname, 'build')));
 
 
 
 // Put API routes here, before the "catch all" route
-app.use('/api/details', require('./routes/api/details.js'))
+// app.use('/api/details', require('./routes/api/details.js'))
 app.use('/api/plantList', require('./routes/api/plantList.js'))
-
+app.use('/api/recommendations', require('./routes/api/recommendations.js'))
 // this one is going to do double duty, serving both items and categories-related routes:
 
 

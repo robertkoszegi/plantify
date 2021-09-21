@@ -8,6 +8,6 @@ const plantListCtrl = require('../../controllers/plantList');
 // router.post('/', orderCtrl.create)
 // GET /api/orders
 router.get('/', plantListCtrl.index)
-// router.get('/details/:id', plantListCtrl.oneIndex)
+router.get('/categories', plantListCtrl.catIndex),
 
 module.exports = router;

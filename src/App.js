@@ -7,7 +7,6 @@ import QuizPage from './pages/QuizPage/QuizPage'
 import RecommendationsPage from './pages/RecommendationsPage/RecommendationsPage'
 import PlantDetailPage from './pages/PlantDetailPage/PlantDetailPage'
 import OrderPage from './pages/OrderPage/OrderPage'
-
 import './App.css';
 import AuthPage from './pages/AuthPage/AuthPage'
 
@@ -54,8 +53,8 @@ class App extends Component {
             <QuizPage {...props}/>
           )}/>
 
-          <Route path='/recommendations' render={(props) => (
-            <RecommendationsPage {...props}/>
+          <Route path='/recommendations/show' render={(props) => (
+            <RecommendationsPage {...props} />
           )}/>
 
           <Route path='/order' render={(props) => (
