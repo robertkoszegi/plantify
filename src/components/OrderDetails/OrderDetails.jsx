@@ -18,14 +18,14 @@ function OrderDetails(props) {
             {/** This is a JSX comment! */}
             <span >{todaysDate}</span>
         </div>
-        <OrderLineItem />        
-        {/* <div >
-            {props.lineItems.map(i => <LineItem lineItem={i} />)}
-            <section className="total">
+        {/* <OrderLineItem />         */}
+        <div >
+            {props.lineItems.map(i => <OrderLineItem lineItem={i} />)}
+            {/* <section className="total">
                 <button onClick={()=>{props.handleCheckout()}}>CHECKOUT</button>
                 <span>${totalCartPrice.toFixed(2)}</span>
-            </section>
-        </div> */}
+            </section> */}
+        </div>
     </div>
   );
 }

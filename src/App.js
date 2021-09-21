@@ -6,6 +6,7 @@ import WishListPage from './pages/WishListPage/WishListPage'
 import QuizPage from './pages/QuizPage/QuizPage'
 import RecommendationsPage from './pages/RecommendationsPage/RecommendationsPage'
 import PlantDetailPage from './pages/PlantDetailPage/PlantDetailPage'
+import OrderPage from './pages/OrderPage/OrderPage'
 
 import './App.css';
 import AuthPage from './pages/AuthPage/AuthPage'
@@ -13,12 +14,29 @@ import AuthPage from './pages/AuthPage/AuthPage'
 class App extends Component {
   state = {
     user: null,
+    lineItems: []
+    
   }
 
   setUserInState = (incomingUserData) => {
     this.setState({user: incomingUserData})
   }
 
+  // add to cart button
+  handleAddToCart = (incoming_item) => {
+    let itemExists = this.state.lineItems.some(obj => obj.item.name === incoming_item.name)
+    console.log(itemExists)
+    if(itemExists) {
+      // increment qty
+     this.setState({lineItems: this.state.lineItems.map(obj => obj.item.name === incoming_item.name ? {...obj,qty:obj.qty+1} : obj)})
+    } else {
+      // add item
+      this.setState({lineItems: [...this.state.lineItems, {qty: 1,item:incoming_item}]})
+    }
+    
+  }
+  
+// console.log(this.state.lineItems)
   render() {
     return(
       <main className="App">
@@ -27,8 +45,9 @@ class App extends Component {
           <Route path='/home' render={(props) => (
             <HomePage {...props}/>
           )}/>
+
           <Route path='/details' render={(props) => (
-            <PlantDetailPage {...props}/>
+            <PlantDetailPage {...props} lineItems={this.state.lineItems} handleAddToCart={this.handleAddToCart}/>
           )}/>
 
           <Route path='/quiz' render={(props) => (
@@ -40,7 +59,7 @@ class App extends Component {
           )}/>
 
           <Route path='/order' render={(props) => (
-            <OrderPage {...props}/>
+            <OrderPage {...props} lineItems={this.state.lineItems}/> // handleCheckout will come here
           )}/>
 
           {/* -- These pages are protected -- */}

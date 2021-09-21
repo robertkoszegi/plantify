@@ -4,14 +4,6 @@ import OrderDetails from '../../components/OrderDetails/OrderDetails';
 
 
 class OrderPage extends React.Component {
-    state = {
-
-    }
-
-    handleCheckout() {
-
-    }
-
 
     render() {
         return(
@@ -20,12 +12,12 @@ class OrderPage extends React.Component {
                     <Navigation />
                 </nav>
                 <h1>Order Details</h1>
-                <OrderDetails />
-                <button onClick={()=>this.handleCheckout()}>Checkout</button>
+                <h3>{this.props.lineItems.length}</h3>
+                <OrderDetails lineItems={this.props.lineItems}/>
+                <button>Checkout</button>
             </main>
         )
     }
-
 }
 
 export default OrderPage;
