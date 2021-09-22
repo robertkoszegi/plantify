@@ -8,6 +8,7 @@ export default function WishListItem(props) {
             {/* sunCond needs mapping to since it is an array */}
             <div>{props.wishLineItems.item.waterFreq}</div>
             <div>{props.wishLineItems.item.price}</div>
+            <button onClick={() => props.removeWish()}> Delete</button> 
         </div>
     )
 }

@@ -8,7 +8,7 @@ import RecommendationsPage from './pages/RecommendationsPage/RecommendationsPage
 import PlantDetailPage from './pages/PlantDetailPage/PlantDetailPage'
 import OrderPage from './pages/OrderPage/OrderPage'
 import './App.css';
-import AuthPage from './pages/AuthPage/AuthPage'
+// import AuthPage from './pages/AuthPage/AuthPage'
 
 class App extends Component {
   state = {

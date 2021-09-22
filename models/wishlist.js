@@ -1,14 +1,14 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
-const orderSchema = new Schema({
-    lineItems: [{
+const wishlistSchema = new Schema({
+    wishLineItems: [{
         qty: Number, 
         item: {
             name: String,
             price: Number,
             waterFreq: String,
-            sunCond: [String],
+            sunCond: String,
             petFriendly: Boolean,
             category: {type: Schema.Types.ObjectId, ref: 'Category'},
         },
@@ -20,5 +20,5 @@ const orderSchema = new Schema({
     timestamps: true,
 });
 
-let OrderModel = mongoose.model('Order', orderSchema);
-module.exports = OrderModel
+let WishlistModel = mongoose.model('Order', wishlistSchema);
+module.exports = WishlistModel;

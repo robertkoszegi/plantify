@@ -5,8 +5,10 @@ export default function WishList(props) {
 
     return(
         <div className='wishDetails'>
-            {props.wishLineItems.map(w => <WishListItem wishLineItems={w}/>)}
+            {props.wishLineItems.map(w => <WishListItem removeWish={props.removeWish} wishLineItems={w}/>)}
 
         </div>
+
     )    
+
 }
