@@ -22,8 +22,6 @@ const userSchema = new Schema(
     timestamps: true,
     toJSON: {
       transform: function (doc, ret) {
-        console.log("the doc ->", doc);
-        console.log("the ret ->", ret);
         delete ret.password;
         return ret;
       },

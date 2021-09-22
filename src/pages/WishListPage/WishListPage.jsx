@@ -4,15 +4,13 @@ import WishList from '../../components/WishList/WishList'
 
 
 class WishListPage extends React.Component {
-    state={
-        wishLineItems:[],
-    }
+
     handleAddToWishListDatabase = async () => {
         this.setState({ wishLineItems: this.props.wishLineItems})
 
         try{
            
-          let fetchResponse = await fetch("/api/wishlist",{
+          let fetchResponse = await fetch("/api/wishlist/create",{
             method: "POST",
             body: JSON.stringify({wishLineItems: this.state.wishLineItems}),
             headers: {"Content-Type": "application/json"},
@@ -43,7 +41,7 @@ class WishListPage extends React.Component {
               let fetchWishListResponse = await fetch('/api/wishlist')
               let wishlist = fetchWishListResponse.json();
               if (!fetchWishListResponse.ok) throw new Error("Could not fetch wishlist")
-              this.setState({ wishLineItems: wishlist})
+            //   this.setState({ wishLineItems: wishlist})
           } catch(err){ 
               console.error('Error:', err)
           }

@@ -12,11 +12,11 @@ const wishlistSchema = new Schema({
         category: {type: Schema.Types.ObjectId, ref: 'Category'},
         
     }],
-//     user: {
-//         type: Schema.Types.ObjectId, ref: 'User'
-//     }
-// }, {
-//     timestamps: true,
+    user: {
+        type: Schema.Types.ObjectId, ref: 'User'
+    }
+}, {
+    timestamps: true,
 });
 
 let WishlistModel = mongoose.model('Order', wishlistSchema);
