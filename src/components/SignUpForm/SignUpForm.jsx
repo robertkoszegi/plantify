@@ -2,8 +2,10 @@ import { Component } from "react";
 
 export default class SignUpForm extends Component {
   state = {
+    name: "",
     email: "",
     password: "",
+    confirm: "",
     error: "",
   };
 
@@ -17,22 +19,21 @@ export default class SignUpForm extends Component {
   handleSubmit = async (evt) => {
     evt.preventDefault();
     try {
-      const fetchResponse = await fetch("/api/users/login", {
+      const fetchResponse = await fetch("/api/users/signup", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
+          name: this.state.name,
           email: this.state.email,
           password: this.state.password,
         }),
       });
 
-      if (!fetchResponse.ok)
-        throw new Error("Fetch failed - Bad request", fetchResponse);
-
+      if (!fetchResponse.ok) throw new Error("fetch failed - bad request");
       let token = await fetchResponse.json();
       localStorage.setItem("token", token);
 
-      const userDoc = JSON.parse(atob(token.split(".")[1])).user; // 5. Decode the token + put user document into state
+      const userDoc = JSON.parse(atob(token.split(".")[1])).user;
       this.props.setUserInState(userDoc);
     } catch (err) {
       console.log("SignupForm error", err);
@@ -41,13 +42,22 @@ export default class SignUpForm extends Component {
   };
 
   render() {
+    const disable = this.state.password !== this.state.confirm;
     return (
       <div>
-        <div className="form-container" onSubmit={this.handleSubmit}>
-          <form autoComplete="off">
-            <label>Email</label>
+        <div className="form-container">
+          <form autoComplete="off" onSubmit={this.handleSubmit}>
+            <label>Name</label>
             <input
               type="text"
+              name="name"
+              value={this.state.name}
+              onChange={this.handleChange}
+              required
+            />
+            <label>Email</label>
+            <input
+              type="email"
               name="email"
               value={this.state.email}
               onChange={this.handleChange}
@@ -61,7 +71,17 @@ export default class SignUpForm extends Component {
               onChange={this.handleChange}
               required
             />
-            <button type="submit">LOG IN</button>
+            <label>Confirm</label>
+            <input
+              type="password"
+              name="confirm"
+              value={this.state.confirm}
+              onChange={this.handleChange}
+              required
+            />
+            <button type="submit" disabled={disable}>
+              SIGN UP
+            </button>
           </form>
         </div>
         <p className="error-message">&nbsp;{this.state.error}</p>

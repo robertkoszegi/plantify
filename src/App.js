@@ -9,12 +9,18 @@ import PlantDetailPage from './pages/PlantDetailPage/PlantDetailPage'
 import OrderPage from './pages/OrderPage/OrderPage'
 import './App.css';
 import AuthPage from './pages/AuthPage/AuthPage'
+import SignUpForm from './components/SignUpForm/SignUpForm'
+import LoginForm from './components/LoginForm/LoginForm'
+
+// BE SURE TO REVIEEW Protecting Routes Pt. 1 : Frontend sends token, incomplete
 
 class App extends Component {
   state = {
     user: null,
     lineItems: [],
-    paid: false
+    wishLineItems:[],
+    paid: false,
+
     
   }
 
@@ -34,7 +40,15 @@ class App extends Component {
       // add item
       this.setState({lineItems: [...this.state.lineItems, {qty: 1,item:incoming_item}]})
     }
-    
+  }
+
+  handleAddToWishlist = (incoming_item) => {
+    let wishItemExists = this.state.wishLineItems.some(obj => obj.item.name === incoming_item.name)
+    if(wishItemExists){
+      this.setState({wishLineItems: this.state.wishLineItems.map(obj => obj.item.name === incoming_item.name ? {...obj,qty:obj.qty+1} : obj)})
+    }else {
+      this.setState({wishLineItems: [...this.state.wishLineItems, {qty: 1, item:incoming_item}]})
+    }
   }
   
   handleCheckout = async() => {
@@ -68,18 +82,41 @@ class App extends Component {
     }
   }
 
+componentDidMount = async () => {
+    const token = localStorage.getItem("token");
+
+    if (token) {
+      try {
+        //We call our verify route that just uses the auth middleware to verify the token. See the server comments for more details
+        const response = await fetch("/api/users/verify", {
+          headers: {
+            Authorization: "Bearer " + token,
+          },
+        });
+        const data = await response.json();
+        //If the token is expired data.name will be TokenExpiredError so we throw a new error so out catch block can handle it
+        if (data.name === "TokenExpiredError") throw new Error("token expired");
+
+        let userDoc = JSON.parse(atob(token.split(".")[1])).user;
+        this.setState({ user: userDoc });
+      } catch (err) {
+        //If there is a problem with the response from the verify link, set the user to null
+        this.setState({ user: null });
+      }
+    }
+  };
 // console.log(this.state.lineItems)
   render() {
     return(
       <main className="App">
-
+        { this.state.user ? 
         <Switch>
           <Route path='/home' render={(props) => (
-            <HomePage {...props}/>
+            <HomePage {...props} setUserInState={this.setUserInState}/>
           )}/>
 
           <Route path='/details' render={(props) => (
-            <PlantDetailPage {...props} lineItems={this.state.lineItems} handleAddToCart={this.handleAddToCart}/>
+            <PlantDetailPage {...props} lineItems={this.state.lineItems} wishLineItems={this.state.wishLineItems} handleAddToWishlist={this.handleAddToWishlist} handleAddToCart={this.handleAddToCart}/>
           )}/>
 
           <Route path='/quiz' render={(props) => (
@@ -100,14 +137,22 @@ class App extends Component {
           )}/>
 
           <Route path='/wishlist' render={(props) => (
-            <WishListPage {...props} user={this.state.user}/>
+            <WishListPage {...props} wishLineItems={this.state.wishLineItems} user={this.state.user}/>
           )}/>
-          {/* -------------------------------- */}
 
+          {/* <Route path='/signup' render={(props)=> (
+            <SignUpForm {...props} user={this.state.user} />
+          )}/>
+          <Route path='/login' render={(props)=> (
+            <LoginForm {...props} user={this.state.user} />
+          )}/>
+ */}
           {/* and in case nothing matches, we redirect: */}
           <Redirect to="/home" />
         </Switch>
-
+          :
+          <AuthPage setUserInState={this.setUserInState}/>
+          }
       </main>
     )
   }

@@ -10,6 +10,7 @@ export default class PlantList extends Component {
                    {this.props.plantListings.filter(plant =>
                         plant.category === this.props.activeCategory).map(p =>
                         <PlantListItem 
+                        key={p.name}
                         img={p.img}  
                         name={p.name} 
                         waterFreq={p.waterFreq} 

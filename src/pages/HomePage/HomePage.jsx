@@ -5,6 +5,7 @@ import './HomePage.css'
 import PlantList from '../../components/PlantList/PlantList';
 import Banner from '../../components/Banner/Banner';
 import Navigation from '../../components/Navigation/Navigation';
+import LogOut from '../../components/LogOut/LogOut'
 // import QuizLink from '../../components/QuizLink/QuizLink';
 // import Logo from '../../components/Logo/Logo';
 // import OrderDetail from '../../components/OrderDetail/OrderDetail';
@@ -59,7 +60,8 @@ class Home extends React.Component {
     //   console.error('ERROR:', err) // <-- log if error
     // }
       try{
-          let fetchPlantsResponse = await fetch('/api/plantList')
+          let jwt = localStorage.getItem('token')
+          let fetchPlantsResponse = await fetch('/api/plantList', {headers: {'Authorization': 'Bearer ' + jwt}})
           let fetchCatsResponse = await fetch('/api/plantList/categories')
           let plants = await fetchPlantsResponse.json()
           let cats = await fetchCatsResponse.json()
@@ -81,8 +83,6 @@ class Home extends React.Component {
         </nav>
 
           <Banner />
-        <h1>HomePage</h1>
-
         {/* <CategoryList /> */}
         <button onClick={() => this.handleCat('6148e261a73b6d074a728570')}>Palms</button>
         <button onClick={() => this.handleCat('6148e261a73b6d074a728572')}>Ferns</button>
@@ -91,7 +91,8 @@ class Home extends React.Component {
         <button onClick={() => this.handleCat('6148e261a73b6d074a728574')}>Cacti</button>
         <button onClick={() => this.handleCat('')}>All</button>
         <PlantList plantListings={this.state.plantListings} activeCategory={this.state.activeCategory}/>
-
+        <LogOut user={this.props.user}
+            setUserInState={this.props.setUserInState}/>
       </main>
     );
   }
