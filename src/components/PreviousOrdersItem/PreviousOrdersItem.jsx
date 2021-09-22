@@ -1,7 +1,14 @@
 
 
-export default function PreviousOrdersItem() {
+export default function PreviousOrdersItem(props) {
+    console.log(props.order)
     return (
-        <h1>Order List Item</h1>
+        <>
+        
+            <h3>{Date(props.order.createdAt)}</h3>
+            <h3>item</h3>
+            {/* <span>{props.order}</span> */}
+        </>
+        
     )
 }

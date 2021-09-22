@@ -16,6 +16,7 @@ function OrderDetails(props) {
         <div className='section-heading'>
             <span >YOUR ORDER</span><br />
             <span >{todaysDate}</span>
+            <span >{props.paid === true ? "Paid" : "Unpaid"}</span>
         </div>
         <div >
             {props.lineItems.map(i => <OrderLineItem lineItem={i} />)}

@@ -13,6 +13,7 @@ const orderSchema = new Schema({
             category: {type: Schema.Types.ObjectId, ref: 'Category'},
         },
     }],
+    paid: {type: Boolean, default: false}
     // user: {
     //     type: Schema.Types.ObjectId, ref: 'User'
     // }
