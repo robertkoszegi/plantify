@@ -4,12 +4,18 @@ import WishList from '../../components/WishList/WishList'
 
 
 class WishListPage extends React.Component {
+    state={
+        wishLineItems:[],
+    }
     handleAddToWishListDatabase = async () => {
+        this.setState({ wishLineItems: this.props.wishLineItems})
+
         try{
+           
           let fetchResponse = await fetch("/api/wishlist",{
             method: "POST",
+            body: JSON.stringify({wishLineItems: this.state.wishLineItems}),
             headers: {"Content-Type": "application/json"},
-            body: JSON.stringify({wishLineItems: this.props.wishLineItems})
           })
           let serverResponse = await fetchResponse.json()
           console.log("Success:", serverResponse)
@@ -23,7 +29,7 @@ class WishListPage extends React.Component {
               let fetchResponse = await fetch("/api/wishlist",{
                   method:"POST",
                   headers: {"Content-Type": "application/json"},
-                body: JSON.stringify({wishLineItems: this.state.wishLineItems})
+                    // body: JSON.stringify({wishLineItems: this.state.wishLineItems})
           })
           let serverResponse = await fetchResponse.json()
           console.log("Success:", serverResponse )
@@ -36,6 +42,7 @@ class WishListPage extends React.Component {
           try{
               let fetchWishListResponse = await fetch('/api/wishlist')
               let wishlist = fetchWishListResponse.json();
+              if (!fetchWishListResponse.ok) throw new Error("Could not fetch wishlist")
               this.setState({ wishLineItems: wishlist})
           } catch(err){ 
               console.error('Error:', err)

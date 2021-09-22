@@ -33,7 +33,6 @@ class App extends Component {
       // add item
       this.setState({lineItems: [...this.state.lineItems, {qty: 1,item:incoming_item}]})
     }
-    
   }
   handleAddToWishlist = (incoming_item) => {
     let wishItemExists = this.state.wishLineItems.some(obj => obj.item.name === incoming_item.name)
