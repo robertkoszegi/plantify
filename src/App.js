@@ -35,6 +35,29 @@ class App extends Component {
     
   }
   
+  handleCheckout = async() => {
+    let lineItems = this.state.lineItems
+    // return console.log(JSON.stringify({lineItems: lineItems}))
+    // No checkout if cart is empty 
+    if (lineItems.length == 0) {
+      alert("Your shopping cart is empty")
+
+    } else {
+      try {
+        // let jwt = localStorage.getItem('token');
+        let fetchResponse = await fetch("api/orders", {
+          method: "POST",
+          header: {"Content-Type": "application/json"},
+          body: JSON.stringify({lineItems: lineItems})
+        })
+        let serverResponse = await fetchResponse.json()
+        console.log("Success:", serverResponse)
+      } catch(err) {
+        console.error("Error:", err)
+      }
+    }
+  }
+
 // console.log(this.state.lineItems)
   render() {
     return(
@@ -58,7 +81,7 @@ class App extends Component {
           )}/>
 
           <Route path='/order' render={(props) => (
-            <OrderPage {...props} lineItems={this.state.lineItems}/> // handleCheckout will come here
+            <OrderPage {...props} lineItems={this.state.lineItems} handleCheckout={this.handleCheckout}/> 
           )}/>
 
           {/* -- These pages are protected -- */}

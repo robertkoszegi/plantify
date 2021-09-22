@@ -12,9 +12,9 @@ class OrderPage extends React.Component {
                     <Navigation />
                 </nav>
                 <h1>Order Details</h1>
-                <h3>{this.props.lineItems.length}</h3>
+                <h3>{this.props.lineItems.length}</h3> {/* Temp */}
                 <OrderDetails lineItems={this.props.lineItems}/>
-                <button>Checkout</button>
+                <button onClick={()=>{this.props.handleCheckout()}}>Checkout</button>
             </main>
         )
     }
