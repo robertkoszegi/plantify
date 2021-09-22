@@ -23,6 +23,7 @@ class App extends Component {
 
   // add to cart button
   handleAddToCart = (incoming_item) => {
+    console.log("incoming_item:",incoming_item)
     let itemExists = this.state.lineItems.some(obj => obj.item.name === incoming_item.name)
     console.log(itemExists)
     if(itemExists) {
@@ -37,11 +38,11 @@ class App extends Component {
   
   handleCheckout = async() => {
     let lineItems = this.state.lineItems
-    // return console.log(JSON.stringify({lineItems: lineItems}))
+    console.log(lineItems)
     // No checkout if cart is empty 
     if (lineItems.length == 0) {
       alert("Your shopping cart is empty")
-
+      // temp alert
     } else {
       try {
         // let jwt = localStorage.getItem('token');

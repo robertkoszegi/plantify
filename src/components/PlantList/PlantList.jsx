@@ -15,6 +15,8 @@ export default class PlantList extends Component {
                         waterFreq={p.waterFreq} 
                         sunCond={p.sunCond} 
                         price={p.price}
+                        petFriendly={p.petFriendly}
+                        category={p.category}
                         />
                     )}  
                 </div>
@@ -30,6 +32,8 @@ export default class PlantList extends Component {
                     waterFreq={p.waterFreq} 
                     sunCond={p.sunCond} 
                     price={p.price}
+                    petFriendly={p.petFriendly}
+                    category={p.category}
                 />
                 )}  
             </div>  
