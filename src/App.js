@@ -46,14 +46,29 @@ class App extends Component {
       this.setState({wishLineItems: [...this.state.wishLineItems, {qty: 1, item:incoming_item}]})
     }
   }
-  componentDidMount() {
-    let token = localStorage.getItem('token')
+  componentDidMount = async () => {
+    const token = localStorage.getItem("token");
+
     if (token) {
-      // YOU DO: check expiry!
-      let userDoc = JSON.parse(atob(token.split('.')[1])).user // decode jwt token
-      this.setState({user: userDoc})      
+      try {
+        //We call our verify route that just uses the auth middleware to verify the token. See the server comments for more details
+        const response = await fetch("/api/users/verify", {
+          headers: {
+            Authorization: "Bearer " + token,
+          },
+        });
+        const data = await response.json();
+        //If the token is expired data.name will be TokenExpiredError so we throw a new error so out catch block can handle it
+        if (data.name === "TokenExpiredError") throw new Error("token expired");
+
+        let userDoc = JSON.parse(atob(token.split(".")[1])).user;
+        this.setState({ user: userDoc });
+      } catch (err) {
+        //If there is a problem with the response from the verify link, set the user to null
+        this.setState({ user: null });
+      }
     }
-  }
+  };
 // console.log(this.state.lineItems)
   render() {
     return(
@@ -61,7 +76,7 @@ class App extends Component {
         { this.state.user ? 
         <Switch>
           <Route path='/home' render={(props) => (
-            <HomePage {...props}/>
+            <HomePage {...props} setUserInState={this.setUserInState}/>
           )}/>
 
           <Route path='/details' render={(props) => (
@@ -89,13 +104,13 @@ class App extends Component {
             <WishListPage {...props} wishLineItems={this.state.wishLineItems} user={this.state.user}/>
           )}/>
 
-          <Route path='/signup' render={(props)=> (
+          {/* <Route path='/signup' render={(props)=> (
             <SignUpForm {...props} user={this.state.user} />
           )}/>
           <Route path='/login' render={(props)=> (
             <LoginForm {...props} user={this.state.user} />
           )}/>
-
+ */}
           {/* and in case nothing matches, we redirect: */}
           <Redirect to="/home" />
         </Switch>

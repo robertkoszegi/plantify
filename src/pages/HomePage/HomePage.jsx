@@ -5,6 +5,7 @@ import './HomePage.css'
 import PlantList from '../../components/PlantList/PlantList';
 import Banner from '../../components/Banner/Banner';
 import Navigation from '../../components/Navigation/Navigation';
+import LogOut from '../../components/LogOut/LogOut'
 // import QuizLink from '../../components/QuizLink/QuizLink';
 // import Logo from '../../components/Logo/Logo';
 // import OrderDetail from '../../components/OrderDetail/OrderDetail';
@@ -90,7 +91,8 @@ class Home extends React.Component {
         <button onClick={() => this.handleCat('6148e261a73b6d074a728574')}>Cacti</button>
         <button onClick={() => this.handleCat('')}>All</button>
         <PlantList plantListings={this.state.plantListings} activeCategory={this.state.activeCategory}/>
-
+        <LogOut user={this.props.user}
+            setUserInState={this.props.setUserInState}/>
       </main>
     );
   }
