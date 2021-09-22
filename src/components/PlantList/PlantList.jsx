@@ -3,7 +3,6 @@ import PlantListItem from '../PlantListItem/PlantListItem'
 import './PlantList.css'
 
 export default class PlantList extends Component {
-    
     render(){
         if(this.props.activeCategory){
             return(
@@ -17,6 +16,8 @@ export default class PlantList extends Component {
                         waterFreq={p.waterFreq} 
                         sunCond={p.sunCond} 
                         price={p.price}
+                        petFriendly={p.petFriendly}
+                        category={p.category}
                         />
                     )}  
                 </div>
@@ -32,6 +33,8 @@ export default class PlantList extends Component {
                     waterFreq={p.waterFreq} 
                     sunCond={p.sunCond} 
                     price={p.price}
+                    petFriendly={p.petFriendly}
+                    category={p.category}
                 />
                 )}  
             </div>  

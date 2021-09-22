@@ -19,6 +19,8 @@ class App extends Component {
     user: null,
     lineItems: [],
     wishLineItems:[],
+    paid: false,
+
     
   }
 
@@ -28,6 +30,7 @@ class App extends Component {
 
   // add to cart button
   handleAddToCart = (incoming_item) => {
+    console.log("incoming_item:",incoming_item)
     let itemExists = this.state.lineItems.some(obj => obj.item.name === incoming_item.name)
     console.log(itemExists)
     if(itemExists) {
@@ -38,6 +41,7 @@ class App extends Component {
       this.setState({lineItems: [...this.state.lineItems, {qty: 1,item:incoming_item}]})
     }
   }
+
   handleAddToWishlist = (incoming_item) => {
     let wishItemExists = this.state.wishLineItems.some(obj => obj.item.name === incoming_item.name)
     if(wishItemExists){
@@ -46,7 +50,39 @@ class App extends Component {
       this.setState({wishLineItems: [...this.state.wishLineItems, {qty: 1, item:incoming_item}]})
     }
   }
-  componentDidMount = async () => {
+  
+  handleCheckout = async() => {
+    console.log(this.state.lineItems)
+    
+    // No checkout if cart is empty 
+    if (this.state.lineItems.length == 0) {
+      alert("Your shopping cart is empty")
+      // temp alert
+    } else {
+      try {
+        this.setState({paid: true})
+        // let jwt = localStorage.getItem('token');
+        let fetchResponse = await fetch("api/orders", {
+          method: "POST",
+          headers: {"Content-Type": "application/json"},
+          body: JSON.stringify({
+            lineItems: this.state.lineItems,
+            paid: this.state.paid
+          })
+        })
+        let serverResponse = await fetchResponse.json()
+        console.log("Success:", serverResponse)
+
+        // clear line items
+        this.setState({lineItems:[]})
+      } catch(err) {
+        console.error("Error:", err)
+      }
+
+    }
+  }
+
+componentDidMount = async () => {
     const token = localStorage.getItem("token");
 
     if (token) {
@@ -92,7 +128,7 @@ class App extends Component {
           )}/>
 
           <Route path='/order' render={(props) => (
-            <OrderPage {...props} lineItems={this.state.lineItems}/> // handleCheckout will come here
+            <OrderPage {...props} lineItems={this.state.lineItems} paid={this.state.paid} handleCheckout={this.handleCheckout}/> 
           )}/>
 
           {/* -- These pages are protected -- */}

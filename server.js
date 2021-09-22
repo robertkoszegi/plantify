@@ -21,12 +21,15 @@ app.use('/api/users', require('./routes/api/users'));
 
 
 // Put API routes here, before the "catch all" route
+
 // app.use('/api/details', require('./routes/api/details.js'))
 app.use(require('./config/auth'));
 app.use('/api/plantList', require('./routes/api/plantList.js'));
 app.use('/api/recommendations', require('./routes/api/recommendations.js'));
 app.use('/api/wishlist', require('./routes/api/wishlist.js'));
+app.use('/api/orders', require('./routes/api/orders.js'));
 // this one is going to do double duty, serving both items and categories-related routes:
+
 
 app.use(function (err, req, res, next) {
   //This will catch all errors that are passed to next from our middleware

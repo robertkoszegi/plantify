@@ -13,9 +13,10 @@ const orderSchema = new Schema({
             category: {type: Schema.Types.ObjectId, ref: 'Category'},
         },
     }],
-    user: {
-        type: Schema.Types.ObjectId, ref: 'User'
-    }
+    paid: {type: Boolean, default: false}
+    // user: {
+    //     type: Schema.Types.ObjectId, ref: 'User'
+    // }
 }, {
     timestamps: true,
 });

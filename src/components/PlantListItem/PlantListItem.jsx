@@ -12,6 +12,8 @@ export default class PlantListItem extends React.Component{
                     waterFreq:this.props.waterFreq,
                     sunCond:this.props.sunCond,
                     price:this.props.price,
+                    petFriendly:this.props.petFriendly,
+                    category:this.props.category
                 }
                 }}>{this.props.name}</Link>
 
