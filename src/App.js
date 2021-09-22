@@ -8,7 +8,11 @@ import RecommendationsPage from './pages/RecommendationsPage/RecommendationsPage
 import PlantDetailPage from './pages/PlantDetailPage/PlantDetailPage'
 import OrderPage from './pages/OrderPage/OrderPage'
 import './App.css';
-// import AuthPage from './pages/AuthPage/AuthPage'
+import AuthPage from './pages/AuthPage/AuthPage'
+import SignUpForm from './components/SignUpForm/SignUpForm'
+import LoginForm from './components/LoginForm/LoginForm'
+
+// BE SURE TO REVIEEW Protecting Routes Pt. 1 : Frontend sends token, incomplete
 
 class App extends Component {
   state = {
@@ -42,12 +46,19 @@ class App extends Component {
       this.setState({wishLineItems: [...this.state.wishLineItems, {qty: 1, item:incoming_item}]})
     }
   }
-  
+  componentDidMount() {
+    let token = localStorage.getItem('token')
+    if (token) {
+      // YOU DO: check expiry!
+      let userDoc = JSON.parse(atob(token.split('.')[1])).user // decode jwt token
+      this.setState({user: userDoc})      
+    }
+  }
 // console.log(this.state.lineItems)
   render() {
     return(
       <main className="App">
-
+        { this.state.user ? 
         <Switch>
           <Route path='/home' render={(props) => (
             <HomePage {...props}/>
@@ -77,12 +88,20 @@ class App extends Component {
           <Route path='/wishlist' render={(props) => (
             <WishListPage {...props} wishLineItems={this.state.wishLineItems} user={this.state.user}/>
           )}/>
-          {/* -------------------------------- */}
+
+          <Route path='/signup' render={(props)=> (
+            <SignUpForm {...props} user={this.state.user} />
+          )}/>
+          <Route path='/login' render={(props)=> (
+            <LoginForm {...props} user={this.state.user} />
+          )}/>
 
           {/* and in case nothing matches, we redirect: */}
           <Redirect to="/home" />
         </Switch>
-
+          :
+          <AuthPage setUserInState={this.setUserInState}/>
+          }
       </main>
     )
   }

@@ -59,7 +59,8 @@ class Home extends React.Component {
     //   console.error('ERROR:', err) // <-- log if error
     // }
       try{
-          let fetchPlantsResponse = await fetch('/api/plantList')
+          let jwt = localStorage.getItem('token')
+          let fetchPlantsResponse = await fetch('/api/plantList', {headers: {'Authorization': 'Bearer ' + jwt}})
           let fetchCatsResponse = await fetch('/api/plantList/categories')
           let plants = await fetchPlantsResponse.json()
           let cats = await fetchCatsResponse.json()

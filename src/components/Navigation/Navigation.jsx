@@ -18,6 +18,8 @@ render(){
       <Link to="/wishlist"> WishList </Link>
       <Link to="/recommendations"> Recommended for you </Link>
       <Link to="/order"> Your Order </Link>
+      <Link to="/login"> Login </Link>
+      <Link to="/signup"> SignUp </Link>
       <Link to='/#'><img src="./user.png" style={{width:15}} alt="" /></Link>
       {/* Do we have a login page? */}
     </div>

@@ -7,6 +7,8 @@ module.exports = {
 
 async function index(req, res) {
     try {
+        // await OrderModel.create({lineItems: req.body.lineItems, user: req.user._id})
+        //REVIEW TO NEED USER WITH ORDERING CONTROLLER
         // 1. grab all items from DB, sorted by date descending (being fancy!)
         let orders = await OrderModel.find({user: req.user._id}).sort({createdAt:'desc'}).exec();
         // 2. send to frontend
