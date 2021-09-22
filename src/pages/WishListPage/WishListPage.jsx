@@ -37,7 +37,7 @@ class WishListPage extends React.Component {
               let fetchWishListResponse = await fetch('/api/wishlist')
               let wishlist = fetchWishListResponse.json();
               this.setState({ wishLineItems: wishlist})
-          } catch(err){
+          } catch(err){ 
               console.error('Error:', err)
           }
       }
