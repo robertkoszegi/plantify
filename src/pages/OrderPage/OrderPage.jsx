@@ -7,15 +7,14 @@ import PrevOrdersList from '../../components/PreviousOrdersList/PreviousOrdersLi
 class OrderPage extends React.Component {
     
     state = {
-        // orderHistory:["order1","order2"]
         orderHistory:[]
     }
     
     async componentDidMount() {
         try {
-            // let jwt = localStorage.getItem('token')
-            // let fetchOrdersResponse = await fetch('/api/orders', {headers: {'Authorization': 'Bearer ' + jwt}})
-            let fetchOrdersResponse = await fetch('/api/orders')
+            let jwt = localStorage.getItem('token')
+            let fetchOrdersResponse = await fetch('/api/orders', {headers: {'Authorization': 'Bearer ' + jwt}})
+            // let fetchOrdersResponse = await fetch('/api/orders')
 
           // uncomment this line below for extra error handling:
           // if (!fetchOrdersResponse.ok) throw new Error("Couldn't fetch orders")

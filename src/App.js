@@ -61,20 +61,22 @@ class App extends Component {
     } else {
       try {
         this.setState({paid: true})
-        // let jwt = localStorage.getItem('token');
+        let jwt = localStorage.getItem('token');
         let fetchResponse = await fetch("api/orders", {
           method: "POST",
-          headers: {"Content-Type": "application/json"},
+          headers: {"Content-Type": "application/json",'Authorization': 'Bearer ' + jwt},
           body: JSON.stringify({
             lineItems: this.state.lineItems,
-            paid: this.state.paid
+            paid: this.state.paid,
           })
         })
-        let serverResponse = await fetchResponse.json()
-        console.log("Success:", serverResponse)
+        // let serverResponse = await fetchResponse.json()
+        // console.log("Success:", serverResponse)
 
         // clear line items
         this.setState({lineItems:[]})
+        // refresh cached window
+        // window.location.reload(false)
       } catch(err) {
         console.error("Error:", err)
       }
