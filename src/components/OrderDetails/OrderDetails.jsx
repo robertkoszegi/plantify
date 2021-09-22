@@ -7,24 +7,23 @@ function OrderDetails(props) {
 
   // calculate the total cart price by iterating over all the lineitems
   let totalCartPrice = 0;
-//   for (let l of props.lineItems) {
-//     totalCartPrice += l.item.price * l.qty
-//   }
+  for (let l of props.lineItems) {
+    totalCartPrice += l.item.price * l.qty
+  }
 
   return (
     <div className='OrderDetails'>
         <div className='section-heading'>
-            <span >YOUR ORDER</span>
-            {/** This is a JSX comment! */}
+            <span >YOUR ORDER</span><br />
             <span >{todaysDate}</span>
+            <span >{props.paid === true ? "Paid" : "Unpaid"}</span>
         </div>
-        {/* <OrderLineItem />         */}
         <div >
             {props.lineItems.map(i => <OrderLineItem lineItem={i} />)}
-            {/* <section className="total">
-                <button onClick={()=>{props.handleCheckout()}}>CHECKOUT</button>
+            <section className="total">
+                {/* <button onClick={()=>{props.handleCheckout()}}>CHECKOUT</button> */}
                 <span>${totalCartPrice.toFixed(2)}</span>
-            </section> */}
+            </section>
         </div>
     </div>
   );

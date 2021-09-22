@@ -24,7 +24,7 @@ class Home extends React.Component {
 
   handleCat = (activeCategory) =>{
     this.setState({activeCategory});
-    console.log(this.state)
+    // console.log(this.state)
 }
 
 
