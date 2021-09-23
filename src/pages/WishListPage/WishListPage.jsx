@@ -5,16 +5,18 @@ import WishList from '../../components/WishList/WishList'
 
 class WishListPage extends React.Component {
     state={
-        wishLineItems:[]
+        wishHistory:[]
     }
   
     handleAddToWishListDatabase = async () => {
         try{
+            let jwt = localStorage.getItem('token')
+
             this.setState({ wishLineItems: this.props.wishLineItems})
            
           let fetchResponse = await fetch("api/wishlist",{
             method: "POST",
-            headers: {"Content-Type": "application/json"},
+            headers: {"Content-Type": "application/json",'Authorization': 'Bearer ' + jwt},
             body: JSON.stringify({wishLineItems: this.props.wishLineItems}),
           })
           let serverResponse = await fetchResponse.json()
@@ -26,28 +28,29 @@ class WishListPage extends React.Component {
             console.log("Error:", err)
           }
       }
-      removeWish = async () => {
-          try{
-              let fetchResponse = await fetch("/api/wishlist",{
-                  method:"POST",
-                  headers: {"Content-Type": "application/json"},
-                    // body: JSON.stringify({wishLineItems: this.state.wishLineItems})
-          })
-          let serverResponse = await fetchResponse.json()
-          console.log("Success:", serverResponse )
-          this.setState({wishLineItems: []})
-          }catch(err){
-              console.log("Error:", err)
-          }
-      }    
+    //   removeWish = async () => {
+    //       try{
+    //           let fetchResponse = await fetch("/api/wishlist",{
+    //               method:"POST",
+    //               headers: {"Content-Type": "application/json"},
+    //                 // body: JSON.stringify({wishLineItems: this.state.wishLineItems})
+    //       })
+    //       let serverResponse = await fetchResponse.json()
+    //       console.log("Success:", serverResponse )
+    //       this.setState({wishLineItems: []})
+    //       }catch(err){
+    //           console.log("Error:", err)
+    //       }
+    //   }    
       async componentDidMount(){
           try{
             let jwt = localStorage.getItem('token')
 
-              let fetchWishListResponse = await fetch('/api/wishlist',{headers: {'Authorization': 'Bearer ' + jwt}})
+              let fetchWishListResponse = await fetch('/api/wishlist',{
+                  headers: {"Content-Type": "application/json",'Authorization': 'Bearer ' + jwt}})
               let wishlist = fetchWishListResponse.json();
               if (!fetchWishListResponse.ok) throw new Error("Could not fetch wishlist")
-              this.setState({ wishLineItems: wishlist})
+              this.setState({ wishHistory: wishlist})
             //   this.setState({ wishLineItems: wishlist})
           } catch(err){ 
               console.error('Error:', err)
@@ -60,7 +63,7 @@ class WishListPage extends React.Component {
                     <Navigation />
                 </nav>
                 <h1>WishListPage</h1>
-                <WishList removeWish={this.removeWish} wishLineItems={this.props.wishLineItems}/>
+                <WishList wishLineItems={this.props.wishLineItems}/>
                 <button onClick={() => this.handleAddToWishListDatabase()}>Save WishList</button>
             </main>
         )

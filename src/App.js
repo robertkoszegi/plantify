@@ -131,7 +131,11 @@ componentDidMount = async () => {
           )}/>
 
           <Route path='/details' render={(props) => (
-            <PlantDetailPage {...props} lineItems={this.state.lineItems} wishLineItems={this.state.wishLineItems} handleAddToWishlist={this.handleAddToWishlist} handleAddToCart={this.handleAddToCart}/>
+            <PlantDetailPage {...props} 
+            lineItems={this.state.lineItems} 
+            wishLineItems={this.state.wishLineItems} 
+            handleAddToWishlist={this.handleAddToWishlist} 
+            handleAddToCart={this.handleAddToCart}/>
           )}/>
 
           <Route path='/quiz' render={(props) => (
@@ -156,7 +160,9 @@ componentDidMount = async () => {
           )}/>
 
           <Route path='/wishlist' render={(props) => (
-            <WishListPage {...props} wishLineItems={this.state.wishLineItems} user={this.state.user}/>
+            <WishListPage {...props} 
+            wishLineItems={this.state.wishLineItems} 
+            user={this.state.user}/>
           )}/>
 
           {/* <Route path='/signup' render={(props)=> (
