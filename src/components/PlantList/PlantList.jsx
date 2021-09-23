@@ -1,7 +1,6 @@
 import React, {Component} from 'react'
 import PlantListItem from '../PlantListItem/PlantListItem'
 import './PlantList.css'
-
 export default class PlantList extends Component {
     render(){
         if(this.props.activeCategory){
