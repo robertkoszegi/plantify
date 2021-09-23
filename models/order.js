@@ -14,6 +14,9 @@ const orderSchema = new Schema({
         },
     }],
     paid: {type: Boolean, default: false},
+
+    total: {type: Number, default: 0},
+
     user: {
         type: Schema.Types.ObjectId, ref: 'User'
     }
@@ -21,5 +24,5 @@ const orderSchema = new Schema({
     timestamps: true,
 });
 
-let OrderModel = mongoose.model('Order', orderSchema);
+let OrderModel = mongoose.model('Orders', orderSchema);
 module.exports = OrderModel
