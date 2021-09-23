@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import Button from 'react-bootstrap/Button';
+import {Col, Container, Row} from 'react-bootstrap';
 import './QuizForm.css';
 import {
     Link
@@ -25,10 +26,12 @@ function QuizForm(props){
 
   
     return (
-      <div className="Center">
-      <form>
-
       
+      <Container>
+      <Row>
+      <Col lg={8} md={8} sm={12}>
+      
+      <form>
       <span>How much sun exposure can you give your plant?</span>
         <div className="radio">
           <label>
@@ -145,7 +148,12 @@ function QuizForm(props){
             state: state
           }}><Button>Submit</Button></Link>
       </form>
-      </div>
+      
+        </Col>
+       
+      </Row>
+      </Container>
+      
     );
   }
 
