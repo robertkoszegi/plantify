@@ -19,6 +19,8 @@ class WishListPage extends React.Component {
           })
           let serverResponse = await fetchResponse.json()
           console.log("Success:", serverResponse)
+          //Flagged
+          this.setState({wishLineItems:[]})
           } catch(err){
               console.log(err.message)
             console.log("Error:", err)

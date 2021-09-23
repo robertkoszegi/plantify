@@ -19,12 +19,13 @@ async function index(req, res) {
 
 async function create(req, res) {
     try {
-        console.log("This is wishlist",req.body)
+        console.log("This is wishlist",req.user)
        let wishlist = await WishlistModel.create({
             wishLineItems: req.body.wishLineItems,
             user: req.user._id});
-        res.status(200).json(wishlist)
+        res.status(200).json()
     } catch(err) {
+        console.log(err.message)
         res.status(400).json(err)
     }
 }
