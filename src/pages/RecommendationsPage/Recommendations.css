@@ -11,50 +11,11 @@
     background-color: #DBEBE0;
     border-radius: 25px;
     margin: 20px 100px;
-    padding: 50px 0;
+    padding: 50px 50px;
 }
 
 .recommendText {
     align-self: center;
 }
 
-
-
-/* .seeMore{
-    display: flex;
-    width: 40vh;
-    background: #55acf3;;
-    font-size: small;
-    margin: 10px 100px;
-    padding: 1.5em;
-    border-radius: 1em;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-} */
-
-/* .signupBlurb {
-    font-size: 1.2rem;
-    display: flex;
-    margin-top: 10px;
-} */
-
-/* .signUpBtn {
-    display:block;
-    position: relative;
-    background-color: #2ecc71;
-    box-shadow: 0px 5px 0px 0px #15B358;
-    color: white;
-    padding: 0;
-    bottom: 15px;
-    text-align: center;
-    border-style: none;
-    font-size: 1.3rem;
-    width: 200px;
-    
-}
-
-.signUpBtn:hover {
-    background-color: #48E68B;
-  } */
 

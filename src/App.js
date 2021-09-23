@@ -8,6 +8,7 @@ import RecommendationsPage from './pages/RecommendationsPage/RecommendationsPage
 import PlantDetailPage from './pages/PlantDetailPage/PlantDetailPage'
 import OrderPage from './pages/OrderPage/OrderPage'
 import './App.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import AuthPage from './pages/AuthPage/AuthPage'
 // import SignUpForm from './components/SignUpForm/SignUpForm'
 // import LoginForm from './components/LoginForm/LoginForm'

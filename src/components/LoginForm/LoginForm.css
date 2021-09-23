@@ -1,18 +1,19 @@
-.linkBtn {
+.btn {
     color: white;
     text-decoration: none;
+    margin-left: 10px;
 }
 
 .Center {
     display: flex;
     justify-content: center;
     align-items: center;
-    height:75vh;  
+    height:50vh;  
+    width: 50vw;
 }
 
 form {
     background: #55acf3;
     padding: 1.5em;
     border-radius: 1em;
-    margin-top: 10px;
 }

@@ -6,6 +6,8 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
+import { Link } from 'react-router-dom'
+
 
 class RecommendationsPage extends React.Component {
     state = {
@@ -48,7 +50,7 @@ class RecommendationsPage extends React.Component {
                         <div className="Recommendations">
                             {this.state.plantListings.length > 0 ?
                             <PlantList  plantListings={this.state.plantListings}/> :
-                               <h2>No Matches Found. Browse our collection.</h2> 
+                               <h2>No Matches Found. Browse our <Link to='/home'>collection.</Link></h2> 
                             }
                         </div>
                         </Col>

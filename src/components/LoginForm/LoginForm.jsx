@@ -1,4 +1,7 @@
 import { Component } from "react";
+import "./LoginForm.css";
+import 'bootstrap/dist/css/bootstrap.min.css';
+import Button from 'react-bootstrap/Button';
 
 export default class SignUpForm extends Component {
   state = {
@@ -61,7 +64,7 @@ export default class SignUpForm extends Component {
               onChange={this.handleChange}
               required
             />
-            <button type="submit">LOG IN</button>
+            <Button class="btn btn-primary" type="submit">LOG IN</Button>
           </form>
         </div>
         <p className="error-message">&nbsp;{this.state.error}</p>

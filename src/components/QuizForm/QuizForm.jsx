@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import 'bootstrap/dist/css/bootstrap.min.css';
 import Button from 'react-bootstrap/Button';
 import './QuizForm.css';
 import {
@@ -24,11 +23,11 @@ function QuizForm(props){
         });
       }
 
-
   
     return (
       <div className="Center">
-      <form >
+      <form>
+
       
       <span>How much sun exposure can you give your plant?</span>
         <div className="radio">
