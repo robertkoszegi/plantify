@@ -9,6 +9,7 @@ export default function PrevOrdersList(props) {
 
     return(
         <main className="PrevOrdersList">
+            <h1>Order History</h1>
             {/** is there more than one order in the order history? okay then display it */}
             {orderHistoryArray.length > 0 ?
             orderHistoryArray
