@@ -2,6 +2,10 @@ import React from 'react';
 import Navigation from '../../components/Navigation/Navigation';
 import OrderDetails from '../../components/OrderDetails/OrderDetails';
 import PrevOrdersList from '../../components/PreviousOrdersList/PreviousOrdersList';
+// styling
+import Card from 'react-bootstrap/Card'
+import './OrderPage.css'
+
 
 
 class OrderPage extends React.Component {
@@ -34,18 +38,24 @@ class OrderPage extends React.Component {
                 <nav className="Navigation">
                     <Navigation />
                 </nav>
-                <h1>Your Current Order</h1>
-                <OrderDetails 
-                    lineItems={this.props.lineItems} 
-                    paid={this.props.paid}
-                    cartTotal={this.props.cartTotal}
-                />
-                <button onClick={()=>{this.props.handleCheckout()}}>Checkout</button>
-
-                <br />
-                <br />
-                <h1>Order History</h1>
-                <PrevOrdersList orderHistory={this.state.orderHistory}/>
+                <div className="content">
+                    <Card className="orderBlock">
+                        <Card.Body>
+                        <OrderDetails 
+                            lineItems={this.props.lineItems} 
+                            paid={this.props.paid}
+                            cartTotal={this.props.cartTotal}
+                            handleCheckout={this.props.handleCheckout}
+                        />
+                        </ Card.Body>
+                    </Card>
+   
+                    <Card className="orderBlock">
+                        <PrevOrdersList orderHistory={this.state.orderHistory}/>
+                    </Card>
+                </div>
+                    
+                
             </main>
         )
     }

@@ -1,0 +1,17 @@
+
+
+.content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    margin: 0;
+}
+
+
+
+.orderBlock {
+    width: 60%;
+    margin: 50px;
+}
