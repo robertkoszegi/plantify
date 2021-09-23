@@ -17,7 +17,7 @@ export default class PlantListItem extends React.Component{
                     category:this.props.category
                 }
                 }}>
-                <img src={`${this.props.image}`} style={{width: 100}} /><br />
+                <img src={`${this.props.image}`} alt={this.props.name} style={{width: 100}} /><br />
                 {this.props.name}</Link>
 
                 {/* Need to insert image tag here, will have to manually insert path into DB */}

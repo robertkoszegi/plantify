@@ -13,7 +13,7 @@ class OrderHistoryPage extends React.Component {
         return(
             <main className="OrderHistoryPage">
                 <nav className="Navigation">
-                    <Navigation />
+                <Navigation setUserInState={this.props.setUserInState}/>
                 </nav>
                 <h1>OrdersPage</h1>
                 <PreviousOrdersList />

@@ -128,19 +128,33 @@ componentDidMount = async () => {
         { this.state.user ? 
         <Switch>
           <Route path='/home' render={(props) => (
-            <HomePage {...props} setUserInState={this.setUserInState}/>
+            <HomePage {...props} 
+            user={this.state.user} 
+            setUserInState={this.setUserInState}/>
           )}/>
 
           <Route path='/details' render={(props) => (
-            <PlantDetailPage {...props} lineItems={this.state.lineItems} wishLineItems={this.state.wishLineItems} handleAddToWishlist={this.handleAddToWishlist} handleAddToCart={this.handleAddToCart}/>
+            <PlantDetailPage {...props} 
+            lineItems={this.state.lineItems} 
+            wishLineItems={this.state.wishLineItems} 
+            handleAddToWishlist={this.handleAddToWishlist} 
+            handleAddToCart={this.handleAddToCart}
+            user={this.state.user}
+            setUserInState={this.setUserInState}/>
           )}/>
 
           <Route path='/quiz' render={(props) => (
-            <QuizPage {...props}/>
+            <QuizPage {...props}
+            user={this.state.user}
+            setUserInState={this.setUserInState}
+            />
           )}/>
 
           <Route path='/recommendations/show' render={(props) => (
-            <RecommendationsPage {...props} />
+            <RecommendationsPage {...props} 
+            user={this.state.user}
+            setUserInState={this.setUserInState}
+            />
           )}/>
 
           <Route path='/order' render={(props) => (
@@ -148,30 +162,31 @@ componentDidMount = async () => {
               lineItems={this.state.lineItems} 
               paid={this.state.paid} 
               handleCheckout={this.handleCheckout}
-              cartTotal={this.state.total} /> 
+              cartTotal={this.state.total}
+              user={this.state.user} 
+              setUserInState={this.setUserInState}/> 
           )}/>
 
           {/* -- These pages are protected -- */}
           <Route path='/orderhistory' render={(props) => (
-            <OrderHistoryPage {...props} user={this.state.user}/>
+            <OrderHistoryPage {...props} 
+            user={this.state.user} 
+            setUserInState={this.setUserInState}/>
           )}/>
 
           <Route path='/wishlist' render={(props) => (
-            <WishListPage {...props} wishLineItems={this.state.wishLineItems} user={this.state.user}/>
+            <WishListPage {...props} 
+            wishLineItems={this.state.wishLineItems} 
+            user={this.state.user} 
+            setUserInState={this.setUserInState}/>
           )}/>
 
-          {/* <Route path='/signup' render={(props)=> (
-            <SignUpForm {...props} user={this.state.user} />
-          )}/>
-          <Route path='/login' render={(props)=> (
-            <LoginForm {...props} user={this.state.user} />
-          )}/>
- */}
-          {/* and in case nothing matches, we redirect: */}
           <Redirect to="/home" />
         </Switch>
           :
-          <AuthPage setUserInState={this.setUserInState}/>
+          <AuthPage 
+          user={this.state.user}
+          setUserInState={this.setUserInState}/>
           }
       </main>
     )

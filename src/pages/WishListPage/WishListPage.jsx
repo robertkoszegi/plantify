@@ -55,7 +55,7 @@ class WishListPage extends React.Component {
         return(
             <main className="WishListPage">
                 <nav className="Navigation">
-                    <Navigation />
+                <Navigation setUserInState={this.props.setUserInState}/>
                 </nav>
                 <h1>WishListPage</h1>
                 <WishList removeWish={this.removeWish} wishLineItems={this.props.wishLineItems}/>

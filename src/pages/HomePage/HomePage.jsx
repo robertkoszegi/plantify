@@ -5,7 +5,6 @@ import './HomePage.css'
 import PlantList from '../../components/PlantList/PlantList';
 import Banner from '../../components/Banner/Banner';
 import Navigation from '../../components/Navigation/Navigation';
-import LogOut from '../../components/LogOut/LogOut'
 // import QuizLink from '../../components/QuizLink/QuizLink';
 // import Logo from '../../components/Logo/Logo';
 // import OrderDetail from '../../components/OrderDetail/OrderDetail';
@@ -79,7 +78,7 @@ class Home extends React.Component {
     return (
       <main className="HomePage">
         <nav className="Navigation">
-          <Navigation />
+          <Navigation setUserInState={this.props.setUserInState}/>
         </nav>
 
           <Banner />
@@ -90,7 +89,7 @@ class Home extends React.Component {
         <button className="catButton vineButton"onClick={() => this.handleCat('6148e261a73b6d074a728573')}>Vines</button>
         <button className="catButton cactiButton"onClick={() => this.handleCat('6148e261a73b6d074a728574')}>Cacti</button>
         <button className="catButton allButton"onClick={() => this.handleCat('')}>All</button>
-          <LogOut user={this.props.user} setUserInState={this.props.setUserInState}/>
+          {/* <LogOut user={this.props.user} setUserInState={this.props.setUserInState}/> */}
         <PlantList plantListings={this.state.plantListings} activeCategory={this.state.activeCategory}/>
       </main>
     );

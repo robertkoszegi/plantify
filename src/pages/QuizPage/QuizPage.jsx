@@ -14,7 +14,7 @@ class QuizPage extends React.Component {
         return(
             <main className="QuizPage">
                 <nav className="Navigation">
-                    <Navigation />
+                <Navigation setUserInState={this.props.setUserInState}/>
                 </nav>
                 <h1>Plant Picker</h1>
                 <QuizForm />

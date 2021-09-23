@@ -12,6 +12,7 @@ export default class PlantDetailPage extends React.Component{
     }
     render(){
         return(
+
             <div className="wrapperDetail">
                 <Navigation />
                     <main className="plantDetail">
