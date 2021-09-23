@@ -7,6 +7,7 @@ const plantSchema = new Schema({
   waterFreq: String,
   sunCond: [String],
   petFriendly: Boolean,
+  image: String,
   category: {type: Schema.Types.ObjectId, ref: 'Category'},
 });
 

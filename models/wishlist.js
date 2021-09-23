@@ -7,7 +7,7 @@ const wishlistSchema = new Schema({
         name: String,
         price: Number,
         waterFreq: String,
-        sunCond: String,
+        sunCond: [String],
         petFriendly: Boolean,
         category: {type: Schema.Types.ObjectId, ref: 'Category'},
         
@@ -19,5 +19,5 @@ const wishlistSchema = new Schema({
     timestamps: true,
 });
 
-let WishlistModel = mongoose.model('Order', wishlistSchema);
+let WishlistModel = mongoose.model('WishList', wishlistSchema);
 module.exports = WishlistModel;

@@ -12,7 +12,7 @@ export default class PlantList extends Component {
                         plant.category === this.props.activeCategory).map(p =>
                         <PlantListItem 
                         key={p.name}
-                        img={p.img}  
+                        image={p.image}  
                         name={p.name} 
                         waterFreq={p.waterFreq} 
                         sunCond={p.sunCond} 
@@ -27,7 +27,7 @@ export default class PlantList extends Component {
                 {this.props.plantListings.map(p =>
                     <PlantListItem 
                     key={p.name}
-                    img={p.img}  
+                    image={p.image}  
                     name={p.name} 
                     waterFreq={p.waterFreq} 
                     sunCond={p.sunCond} 

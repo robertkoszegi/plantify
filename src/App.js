@@ -9,8 +9,8 @@ import PlantDetailPage from './pages/PlantDetailPage/PlantDetailPage'
 import OrderPage from './pages/OrderPage/OrderPage'
 import './App.css';
 import AuthPage from './pages/AuthPage/AuthPage'
-import SignUpForm from './components/SignUpForm/SignUpForm'
-import LoginForm from './components/LoginForm/LoginForm'
+// import SignUpForm from './components/SignUpForm/SignUpForm'
+// import LoginForm from './components/LoginForm/LoginForm'
 
 // BE SURE TO REVIEEW Protecting Routes Pt. 1 : Frontend sends token, incomplete
 
@@ -46,7 +46,39 @@ class App extends Component {
       this.setState({wishLineItems: [...this.state.wishLineItems, {qty: 1, item:incoming_item}]})
     }
   }
-  componentDidMount = async () => {
+  
+  handleCheckout = async() => {
+    console.log(this.state.lineItems)
+    
+    // No checkout if cart is empty 
+    if (this.state.lineItems.length === 0) {
+      alert("Your shopping cart is empty")
+      // temp alert
+    } else {
+      try {
+        this.setState({paid: true})
+        // let jwt = localStorage.getItem('token');
+        let fetchResponse = await fetch("api/orders", {
+          method: "POST",
+          headers: {"Content-Type": "application/json"},
+          body: JSON.stringify({
+            lineItems: this.state.lineItems,
+            paid: this.state.paid
+          })
+        })
+        let serverResponse = await fetchResponse.json()
+        console.log("Success:", serverResponse)
+
+        // clear line items
+        this.setState({lineItems:[]})
+      } catch(err) {
+        console.error("Error:", err)
+      }
+
+    }
+  }
+
+componentDidMount = async () => {
     const token = localStorage.getItem("token");
 
     if (token) {

@@ -16,10 +16,13 @@ export default class PlantDetailPage extends React.Component{
             <main className="PlantDetail">
                 <Navigation />
                 <div>
-                    Name: {this.state.data.name}
-                    Watering Frequency? {this.state.data.waterFreq}
-                    Sun Conditions? {this.state.data.sunCond}
-                    $ {this.state.data.price}
+                    <img src={`${this.state.data.image}`} style={{width: 100}} /><br />
+                    Name: {this.state.data.name} <br />
+                    Watering Frequency: {this.state.data.waterFreq} <br />
+                    Sun Conditions: {this.state.data.sunCond} <br />
+                    $ {this.state.data.price}<br />
+                    Pet Friendly: {this.state.data.petFriendly}<br />
+                    Category: {this.state.data.category}
                 </div>
                 {/* Add Cart Functionality here */}
                 <button onClick={()=>{this.props.handleAddToCart(this.state.data)}}>Add to cart</button>
