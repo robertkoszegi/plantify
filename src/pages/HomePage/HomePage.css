@@ -1,0 +1,60 @@
+.catButton{
+    border: none;
+    padding: 40px 45px;
+    border-radius: 15px;
+    font-size: 20px;
+    
+}
+.palmButton{
+    background-color: #3E572F;
+    transition-duration: 0.4s;
+}
+.palmButton:hover{
+    background-color: rgb(241, 211, 226);
+}
+.fernButton{
+    background-color: #2f573e;
+    transition-duration: 0.4s;
+}
+.fernButton:hover{
+    background-color: rgb(241, 211, 226);
+}
+.succulentButton{
+    background-color: #2f5657;
+    transition-duration: 0.4s;
+}
+.succulentButton:hover{
+    background-color: rgb(241, 211, 226);
+}
+.vineButton{
+    background-color: #2f4e57;
+    transition-duration: 0.4s;
+}
+.vineButton:hover{
+    background-color: rgb(241, 211, 226);
+}
+.cactiButton{
+    background-color: #2f4457;
+    transition-duration: 0.4s;
+}
+.cactiButton:hover{
+    background-color: rgb(241, 211, 226);
+}
+.allButton{
+    background-color: #2f3657;
+    transition-duration: 0.4s;
+}
+.allButton:hover{
+    background-color: rgb(241, 211, 226);
+}
+.logoutButton{
+    border:none;
+    border-radius: 15px;
+    padding: 20px 25px;
+    transition-duration: 0.4s;
+
+}
+.logoutButton:hover{
+    background-color:rgb(196, 196, 196);
+}
+

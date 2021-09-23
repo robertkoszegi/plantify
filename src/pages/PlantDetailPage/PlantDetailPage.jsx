@@ -16,6 +16,7 @@ export default class PlantDetailPage extends React.Component{
             <main className="PlantDetail">
                 <Navigation />
                 <div>
+                    <img src={`${this.state.data.image}`} style={{width: 100}} /><br />
                     Name: {this.state.data.name} <br />
                     Watering Frequency: {this.state.data.waterFreq} <br />
                     Sun Conditions: {this.state.data.sunCond} <br />

@@ -14,7 +14,9 @@ const orderSchema = new Schema({
         },
     }],
     paid: {type: Boolean, default: false},
+
     total: {type: Number, default: 0},
+
     user: {
         type: Schema.Types.ObjectId, ref: 'User'
     }

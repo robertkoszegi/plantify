@@ -9,8 +9,8 @@ import PlantDetailPage from './pages/PlantDetailPage/PlantDetailPage'
 import OrderPage from './pages/OrderPage/OrderPage'
 import './App.css';
 import AuthPage from './pages/AuthPage/AuthPage'
-import SignUpForm from './components/SignUpForm/SignUpForm'
-import LoginForm from './components/LoginForm/LoginForm'
+// import SignUpForm from './components/SignUpForm/SignUpForm'
+// import LoginForm from './components/LoginForm/LoginForm'
 
 // BE SURE TO REVIEEW Protecting Routes Pt. 1 : Frontend sends token, incomplete
 
@@ -66,7 +66,7 @@ class App extends Component {
     console.log(this.state.lineItems)
     
     // No checkout if cart is empty 
-    if (this.state.lineItems.length == 0) {
+    if (this.state.lineItems.length === 0) {
       alert("Your shopping cart is empty")
       // temp alert
     } else {

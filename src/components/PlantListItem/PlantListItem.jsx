@@ -8,6 +8,7 @@ export default class PlantListItem extends React.Component{
             <Link to={{
                 pathname:"/details",
                 state:{
+                    image:this.props.image,
                     name:this.props.name,
                     waterFreq:this.props.waterFreq,
                     sunCond:this.props.sunCond,
@@ -15,7 +16,9 @@ export default class PlantListItem extends React.Component{
                     petFriendly:this.props.petFriendly,
                     category:this.props.category
                 }
-                }}>{this.props.name}</Link>
+                }}>
+                <img src={`${this.props.image}`} style={{width: 100}} /><br />
+                {this.props.name}</Link>
 
                 {/* Need to insert image tag here, will have to manually insert path into DB */}
             <div>{this.props.price}</div>
