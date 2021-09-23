@@ -29,6 +29,12 @@ function OrderDetails(props) {
           :
           <span className="no-orders">Your cart is empty</span>
         }
+        {orderArray.length > 0 ?
+        <><br /><Button onClick={()=>{props.handleCheckout()}}>Checkout</Button></>
+          :
+        <br />
+        }
+
         {/* <span >{props.paid === true ? "Paid" : ""}</span> */}
       </div>
       <div >
@@ -37,7 +43,7 @@ function OrderDetails(props) {
           {/* <button onClick={()=>{props.handleCheckout()}}>CHECKOUT</button> */}
           {/* <span>${totalCartPrice.toFixed(2)}</span> */}
         </section>
-        <Button onClick={()=>{this.props.handleCheckout()}}>Checkout</Button>
+        
       </div>
     </div>
   );

@@ -51,7 +51,9 @@ class OrderPage extends React.Component {
                     </Card>
    
                     <Card className="orderBlock">
-                        <PrevOrdersList orderHistory={this.state.orderHistory}/>
+                        <Card.Body>
+                            <PrevOrdersList orderHistory={this.state.orderHistory}/>
+                        </Card.Body>
                     </Card>
                 </div>
                     
