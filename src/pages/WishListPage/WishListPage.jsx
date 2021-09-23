@@ -7,7 +7,6 @@ class WishListPage extends React.Component {
 
     }
 
-
     render() {
         return(
             <main className="WishListPage">

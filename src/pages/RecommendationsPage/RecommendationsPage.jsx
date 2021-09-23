@@ -2,6 +2,10 @@ import React from 'react';
 import Navigation from '../../components/Navigation/Navigation';
 import './Recommendations.css'
 import PlantList from '../../components/PlantList/PlantList';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import Container from 'react-bootstrap/Container';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
 
 class RecommendationsPage extends React.Component {
     state = {
@@ -36,19 +40,21 @@ class RecommendationsPage extends React.Component {
                 <nav className="Navigation">
                     <Navigation />
                 </nav>
+                <Container>
                 <div className="wrapper">
-                    <h2>Based on your answers we recommend...</h2>
-                    <div className="Recommendations">
-                        <h3>Your Plant Picks!</h3>
-                        <PlantList  plantListings={this.state.plantListings}/>
-                        
-                    </div>
-                    <div className="seeMore">
-                        <p>Save your preferences, build a wishlist, review pas orders and recieve ongoing plant care support by signing up with us</p>
-                        <button>See More</button>
-                    </div>
-                    <button>Sign Up</button>
+                    <Row>
+                        <Col xs={12} md={10} l={6}>
+                        <h2 className="recommendText">Based on your answers we recommend...</h2>
+                        <div className="Recommendations">
+                            {this.state.plantListings.length > 0 ?
+                            <PlantList  plantListings={this.state.plantListings}/> :
+                               <h2>No Matches Found. Browse our collection.</h2> 
+                            }
+                        </div>
+                        </Col>
+                    </Row>   
                 </div>
+                </Container>
             </main>
         )
     }
@@ -56,3 +62,4 @@ class RecommendationsPage extends React.Component {
 }
 
 export default RecommendationsPage;
+
