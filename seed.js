@@ -3,6 +3,7 @@ require('./config/database');
 
 const CategoryModel = require('./models/category');
 const PlantModel = require('./models/plant');
+const UserModel = require('./models/user')
 
 (async function populateDB() {
 
@@ -14,6 +15,17 @@ const PlantModel = require('./models/plant');
     {name: 'Vine'}, //3
     {name: 'Cacti'}, //4
   ]);
+
+  await UserModel.deleteMany({});
+  const users = await UserModel.create(
+      [
+          {
+              name: "testuser",
+              email: "testuser@email.com",
+              password: "serveruser",
+          }
+      ]
+  )
 
   await PlantModel.deleteMany({});
   const plants = await PlantModel.create([

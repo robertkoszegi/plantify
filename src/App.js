@@ -19,6 +19,8 @@ class App extends Component {
     user: null,
     lineItems: [],
     wishLineItems:[],
+    paid: false,
+
     
   }
 
@@ -28,6 +30,7 @@ class App extends Component {
 
   // add to cart button
   handleAddToCart = (incoming_item) => {
+    console.log("incoming_item:",incoming_item)
     let itemExists = this.state.lineItems.some(obj => obj.item.name === incoming_item.name)
     console.log(itemExists)
     if(itemExists) {
@@ -38,6 +41,7 @@ class App extends Component {
       this.setState({lineItems: [...this.state.lineItems, {qty: 1,item:incoming_item}]})
     }
   }
+
   handleAddToWishlist = (incoming_item) => {
     let wishItemExists = this.state.wishLineItems.some(obj => obj.item.name === incoming_item.name)
     if(wishItemExists){
@@ -124,7 +128,7 @@ componentDidMount = async () => {
           )}/>
 
           <Route path='/order' render={(props) => (
-            <OrderPage {...props} lineItems={this.state.lineItems}/> // handleCheckout will come here
+            <OrderPage {...props} lineItems={this.state.lineItems} paid={this.state.paid} handleCheckout={this.handleCheckout}/> 
           )}/>
 
           {/* -- These pages are protected -- */}

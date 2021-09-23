@@ -46,3 +46,4 @@ function verify(req, res) {
   //Check the Auth in the config folder to see the data flow
   res.json(req.user);
 }
+

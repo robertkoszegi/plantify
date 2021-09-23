@@ -13,6 +13,8 @@ export default class PlantListItem extends React.Component{
                     waterFreq:this.props.waterFreq,
                     sunCond:this.props.sunCond,
                     price:this.props.price,
+                    petFriendly:this.props.petFriendly,
+                    category:this.props.category
                 }
                 }}>
                 <img src={`${this.props.image}`} style={{width: 100}} /><br />
