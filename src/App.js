@@ -10,8 +10,8 @@ import OrderPage from './pages/OrderPage/OrderPage'
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import AuthPage from './pages/AuthPage/AuthPage'
-import SignUpForm from './components/SignUpForm/SignUpForm'
-import LoginForm from './components/LoginForm/LoginForm'
+// import SignUpForm from './components/SignUpForm/SignUpForm'
+// import LoginForm from './components/LoginForm/LoginForm'
 
 // BE SURE TO REVIEEW Protecting Routes Pt. 1 : Frontend sends token, incomplete
 
@@ -21,12 +21,22 @@ class App extends Component {
     lineItems: [],
     wishLineItems:[],
     paid: false,
+    total: 0,
 
     
   }
 
   setUserInState = (incomingUserData) => {
     this.setState({user: incomingUserData})
+  }
+
+  updateCartTotal = () => {
+    // cart total
+    let totalCartPrice = 0;
+    for (let l of this.state.lineItems) {
+      totalCartPrice += l.item.price * l.qty
+    }
+    this.setState({total: totalCartPrice})
   }
 
   // add to cart button
@@ -36,11 +46,12 @@ class App extends Component {
     console.log(itemExists)
     if(itemExists) {
       // increment qty
-     this.setState({lineItems: this.state.lineItems.map(obj => obj.item.name === incoming_item.name ? {...obj,qty:obj.qty+1} : obj)})
+      this.setState({lineItems: this.state.lineItems.map(obj => obj.item.name === incoming_item.name ? {...obj,qty:obj.qty+1} : obj)}, this.updateCartTotal)
     } else {
       // add item
-      this.setState({lineItems: [...this.state.lineItems, {qty: 1,item:incoming_item}]})
+      this.setState({lineItems: [...this.state.lineItems, {qty: 1,item:incoming_item}]}, this.updateCartTotal)
     }
+    
   }
 
   handleAddToWishlist = (incoming_item) => {
@@ -56,26 +67,30 @@ class App extends Component {
     console.log(this.state.lineItems)
     
     // No checkout if cart is empty 
-    if (this.state.lineItems.length == 0) {
+    if (this.state.lineItems.length === 0) {
       alert("Your shopping cart is empty")
       // temp alert
     } else {
       try {
+
         this.setState({paid: true})
-        // let jwt = localStorage.getItem('token');
+        let jwt = localStorage.getItem('token');
         let fetchResponse = await fetch("api/orders", {
           method: "POST",
-          headers: {"Content-Type": "application/json"},
+          headers: {"Content-Type": "application/json",'Authorization': 'Bearer ' + jwt},
           body: JSON.stringify({
             lineItems: this.state.lineItems,
-            paid: this.state.paid
+            paid: this.state.paid,
+            total: this.state.total
           })
         })
-        let serverResponse = await fetchResponse.json()
-        console.log("Success:", serverResponse)
+        // let serverResponse = await fetchResponse.json()
+        // console.log("Success:", serverResponse)
 
         // clear line items
         this.setState({lineItems:[]})
+        // refresh cached window
+        window.location.reload(false)
       } catch(err) {
         console.error("Error:", err)
       }
@@ -129,7 +144,11 @@ componentDidMount = async () => {
           )}/>
 
           <Route path='/order' render={(props) => (
-            <OrderPage {...props} lineItems={this.state.lineItems} paid={this.state.paid} handleCheckout={this.handleCheckout}/> 
+            <OrderPage {...props} 
+              lineItems={this.state.lineItems} 
+              paid={this.state.paid} 
+              handleCheckout={this.handleCheckout}
+              cartTotal={this.state.total} /> 
           )}/>
 
           {/* -- These pages are protected -- */}

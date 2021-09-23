@@ -27,6 +27,7 @@ function QuizForm(props){
     return (
       <div className="Center">
       <form>
+
       
       <span>How much sun exposure can you give your plant?</span>
         <div className="radio">

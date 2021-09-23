@@ -7,15 +7,14 @@ import PrevOrdersList from '../../components/PreviousOrdersList/PreviousOrdersLi
 class OrderPage extends React.Component {
     
     state = {
-        // orderHistory:["order1","order2"]
         orderHistory:[]
     }
     
     async componentDidMount() {
         try {
-            // let jwt = localStorage.getItem('token')
-            // let fetchOrdersResponse = await fetch('/api/orders', {headers: {'Authorization': 'Bearer ' + jwt}})
-            let fetchOrdersResponse = await fetch('/api/orders')
+            let jwt = localStorage.getItem('token')
+            let fetchOrdersResponse = await fetch('/api/orders', {headers: {'Authorization': 'Bearer ' + jwt}})
+            // let fetchOrdersResponse = await fetch('/api/orders')
 
           // uncomment this line below for extra error handling:
           // if (!fetchOrdersResponse.ok) throw new Error("Couldn't fetch orders")
@@ -35,9 +34,12 @@ class OrderPage extends React.Component {
                 <nav className="Navigation">
                     <Navigation />
                 </nav>
-                <h1>Order Details</h1>
-                <h3>{this.props.lineItems.length}</h3> {/* Temp */}
-                <OrderDetails lineItems={this.props.lineItems} paid={this.props.paid}/>
+                <h1>Your Current Order</h1>
+                <OrderDetails 
+                    lineItems={this.props.lineItems} 
+                    paid={this.props.paid}
+                    cartTotal={this.props.cartTotal}
+                />
                 <button onClick={()=>{this.props.handleCheckout()}}>Checkout</button>
 
                 <br />

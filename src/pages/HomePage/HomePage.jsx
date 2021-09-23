@@ -84,15 +84,14 @@ class Home extends React.Component {
 
           <Banner />
         {/* <CategoryList /> */}
-        <button onClick={() => this.handleCat('6148e261a73b6d074a728570')}>Palms</button>
-        <button onClick={() => this.handleCat('6148e261a73b6d074a728572')}>Ferns</button>
-        <button onClick={() => this.handleCat('6148e261a73b6d074a728571')}>Succulents</button>
-        <button onClick={() => this.handleCat('6148e261a73b6d074a728573')}>Vines</button>
-        <button onClick={() => this.handleCat('6148e261a73b6d074a728574')}>Cacti</button>
-        <button onClick={() => this.handleCat('')}>All</button>
+        <button className="catButton palmButton" onClick={() => this.handleCat('6148e261a73b6d074a728570')}>Palms</button>
+        <button className="catButton fernButton"onClick={() => this.handleCat('6148e261a73b6d074a728572')}>Ferns</button>
+        <button className="catButton succulentButton"onClick={() => this.handleCat('6148e261a73b6d074a728571')}>Succulents</button>
+        <button className="catButton vineButton"onClick={() => this.handleCat('6148e261a73b6d074a728573')}>Vines</button>
+        <button className="catButton cactiButton"onClick={() => this.handleCat('6148e261a73b6d074a728574')}>Cacti</button>
+        <button className="catButton allButton"onClick={() => this.handleCat('')}>All</button>
+          <LogOut user={this.props.user} setUserInState={this.props.setUserInState}/>
         <PlantList plantListings={this.state.plantListings} activeCategory={this.state.activeCategory}/>
-        <LogOut user={this.props.user}
-            setUserInState={this.props.setUserInState}/>
       </main>
     );
   }

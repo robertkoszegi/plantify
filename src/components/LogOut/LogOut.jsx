@@ -14,9 +14,7 @@ class LogOut extends React.Component {
     return (
       <div className="UserLogOut">
         {/* use props to fill information if its not null */}
-        <div>Name: {this.props.user ? this.props.user.name : "??"}</div>
-        <div>Email: {this.props.user ? this.props.user.email : "??"}</div>
-        <button className="btn-sm" onClick={this.logout}>
+        <button className="logoutButton" onClick={this.logout}>
           Logout
         </button>
       </div>
