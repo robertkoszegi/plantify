@@ -1,0 +1,18 @@
+.linkBtn {
+    color: white;
+    text-decoration: none;
+}
+
+.Center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height:75vh;  
+}
+
+form {
+    background: #55acf3;
+    padding: 1.5em;
+    border-radius: 1em;
+    margin-top: 10px;
+}

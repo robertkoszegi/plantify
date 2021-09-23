@@ -1,4 +1,6 @@
-import React from "react";
+import React, { Component } from "react";
+import Button from 'react-bootstrap/Button';
+import './QuizForm.css';
 import {
     Link
   } from "react-router-dom";
@@ -21,10 +23,10 @@ function QuizForm(props){
         });
       }
 
-
   
     return (
-      <form >
+      <div className="Center">
+      <form>
       
       <span>How much sun exposure can you give your plant?</span>
         <div className="radio">
@@ -136,24 +138,13 @@ function QuizForm(props){
           </label>
         </div>
 
-        <div>
-          Selected sun option is : {state.sun}
-          <br />
-          Selected Price Option is :  {state.price}
-          <br />
-          Selected Water Option is :  {state.water}
-          <br />
-          Selected Pet Option is :  {state.pet}
-        </div>
-        {/* <button className="btn btn-default" type="submit">
-          Submit
-        </button>    */}
-        <Link to={{
+        <Link className="linkBtn" to={{
             pathname: '/recommendations/show',
             search: '',
             state: state
-          }}> Submit </Link>
+          }}><Button>Submit</Button></Link>
       </form>
+      </div>
     );
   }
 

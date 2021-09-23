@@ -1,5 +1,5 @@
 import React from 'react';
-import './QuizPage.css'
+import './QuizPage.css';
 import Navigation from '../../components/Navigation/Navigation';
 import QuizForm from '../../components/QuizForm/QuizForm';
 
@@ -16,7 +16,7 @@ class QuizPage extends React.Component {
                 <nav className="Navigation">
                     <Navigation />
                 </nav>
-                <h1>Quiz Page</h1>
+                <h1>Plant Picker</h1>
                 <QuizForm />
             </main>
         )
