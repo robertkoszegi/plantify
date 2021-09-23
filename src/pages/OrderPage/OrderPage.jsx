@@ -34,9 +34,12 @@ class OrderPage extends React.Component {
                 <nav className="Navigation">
                     <Navigation />
                 </nav>
-                <h1>Order Details</h1>
-                <h3>{this.props.lineItems.length}</h3> {/* Temp */}
-                <OrderDetails lineItems={this.props.lineItems} paid={this.props.paid}/>
+                <h1>Your Current Order</h1>
+                <OrderDetails 
+                    lineItems={this.props.lineItems} 
+                    paid={this.props.paid}
+                    cartTotal={this.props.cartTotal}
+                />
                 <button onClick={()=>{this.props.handleCheckout()}}>Checkout</button>
 
                 <br />
