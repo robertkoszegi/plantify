@@ -1,4 +1,5 @@
 import React, {Component} from 'react'
+import './PlantDetail.css'
 
 export default class PlantDetail extends Component {
     state = {
