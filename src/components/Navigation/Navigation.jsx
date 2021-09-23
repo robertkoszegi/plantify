@@ -1,6 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import './Navigation.css'
+import LogOut from '../../components/LogOut/LogOut'
 
 
 
@@ -18,9 +19,7 @@ render(){
       <Link to="/wishlist"> WishList </Link>
       <Link to="/recommendations"> Recommended for you </Link>
       <Link to="/order"> Your Order </Link>
-      <Link to="/login"> Login </Link>
-      <Link to="/signup"> SignUp </Link>
-      <Link to='/#'><img src="./user.png" style={{width:15}} alt="" /></Link>
+      <LogOut user={this.props.user} setUserInState={this.props.setUserInState}/>
       {/* Do we have a login page? */}
     </div>
   );

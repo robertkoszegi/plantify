@@ -40,7 +40,7 @@ class RecommendationsPage extends React.Component {
         return(
             <main className="RecommendationsPage">
                 <nav className="Navigation">
-                    <Navigation />
+                <Navigation setUserInState={this.props.setUserInState}/>
                 </nav>
                 <Container>
                 <div className="wrapper">

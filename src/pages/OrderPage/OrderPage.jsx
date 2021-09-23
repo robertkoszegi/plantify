@@ -36,7 +36,7 @@ class OrderPage extends React.Component {
         return(
             <main className="OrderPage">
                 <nav className="Navigation">
-                    <Navigation />
+                <Navigation setUserInState={this.props.setUserInState}/>
                 </nav>
                 <div className="content">
                     <Card className="orderBlock">
