@@ -2,7 +2,7 @@
 Plantify is an e-commerce MERN app. The goal of Plantify is to offer a helping hand to customers looking to ensure a freshly bought plant will thrive in their environment. Plantify offers a Plant Picker page to filter plants based on your needs. Our Plant Picker will filter through a database of in stock plants based on light conditions, whether or not it is toxic for pets, watering needs and price. With this data, which ever plant you choose to purchase, should not only survive, but thrive in your new green dwelling. 
 
 <h3>ScreenShots</h3>
-<img src="/images/homepage.png">
+<img src="/homepage.png">
 <img src="/images/details.png">
 <img src="/images/plantpicker.png">
 
