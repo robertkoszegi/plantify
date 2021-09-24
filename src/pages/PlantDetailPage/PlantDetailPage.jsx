@@ -14,7 +14,7 @@ export default class PlantDetailPage extends React.Component{
         return(
 
             <div className="wrapperDetail">
-                <Navigation />
+                <Navigation setUserInState={this.props.setUserInState} />
                     <main className="plantDetail">
                         <div className="plantInfo">
                             <Link to="/home">Back</Link><br />
