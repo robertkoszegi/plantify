@@ -13,7 +13,7 @@ export default class PlantListItem extends React.Component{
          
            <Card.Text>
            <div><span><strong>{this.props.name}</strong></span></div>
-           <Card.Img variant="top" src={`${this.props.image}`} style={{width: 100, height: 100}} />
+           <Card.Img variant="top" src={`${"/"+this.props.image}`} style={{width: 100, height: 100}} />
            <div>${this.props.price}</div>
            </Card.Text>
             <Link to={{
