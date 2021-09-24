@@ -6,7 +6,7 @@ Plantify is an e-commerce MERN app. The goal of Plantify is to offer a helping h
 <img src="/images/details.png">
 <img src="/images/plantpicker.png">
 
-<h3>Technologies Ussed</h3>
+<h3>Technologies Used</h3>
 <ul>
     <li>MongoDB</li>
     <li>ExpressJs</li>
@@ -25,9 +25,11 @@ Plantify is an e-commerce MERN app. The goal of Plantify is to offer a helping h
 <h3>Future Additions</h3>
 Plantify will expand as we continue to develop it.
 <ul>
-    <li>Expanded Database to ensure more options</li>
+    <li>Expanded Database to ensure more choice in plant options</li>
     <li>A more indepth Plant Picker section, involving substrate types, and ph balance information</li>
     <li>Recommendations as of now are not held in the database, we will attach these recommendations to a user for sustaining suggested information</li>
     <li>Wishlist expansion, needs to be added to database, debugging</li>
     <li>Aesthetic improvements, more dynamic elements, with mobile design in mind</li>
+    <li>Email notifications for further recommendations, and plant care follow up</li>
+    <li>A user profile page, keep up to date on new plant arrivals, plant care for previous purchases</li>
 </ul>
