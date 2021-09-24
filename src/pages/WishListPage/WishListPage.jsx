@@ -1,24 +1,24 @@
 import React from 'react';
 import Navigation from '../../components/Navigation/Navigation';
 import WishList from '../../components/WishList/WishList'
+import './WishListPage.css'
 
 
 class WishListPage extends React.Component {
     state={
         wishLineItems:[]
     }
-  
+    //Future features to enable, wishlist does not sustain through reload as of now
     handleAddToWishListDatabase = async () => {
         try{
             this.setState({ wishLineItems: this.props.wishLineItems})
            
-          let fetchResponse = await fetch("api/wishlist",{
+            let fetchResponse = await fetch("api/wishlist",{
             method: "POST",
             headers: {"Content-Type": "application/json"},
             body: JSON.stringify({wishLineItems: this.props.wishLineItems}),
           })
           let serverResponse = await fetchResponse.json()
-          console.log("Success:", serverResponse)
           } catch(err){
               console.log(err.message)
             console.log("Error:", err)
@@ -29,10 +29,9 @@ class WishListPage extends React.Component {
               let fetchResponse = await fetch("/api/wishlist",{
                   method:"POST",
                   headers: {"Content-Type": "application/json"},
-                    // body: JSON.stringify({wishLineItems: this.state.wishLineItems})
+                // body: JSON.stringify({wishLineItems: this.state.wishLineItems})
           })
           let serverResponse = await fetchResponse.json()
-          console.log("Success:", serverResponse )
           this.setState({wishLineItems: []})
           }catch(err){
               console.log("Error:", err)
@@ -55,11 +54,11 @@ class WishListPage extends React.Component {
         return(
             <main className="WishListPage">
                 <nav className="Navigation">
-                <Navigation setUserInState={this.props.setUserInState}/>
+                    <Navigation setUserInState={this.props.setUserInState}/>
                 </nav>
                 <h1>WishListPage</h1>
-                <WishList removeWish={this.removeWish} wishLineItems={this.props.wishLineItems}/>
-                <button onClick={() => this.handleAddToWishListDatabase()}>Save WishList</button>
+                <WishList removeWish={this.removeWish} wishLineItems={this.props.wishLineItems} handleAddToCart={this.props.handleAddToCart}/>
+                {/* <button onClick={() => this.handleAddToWishListDatabase()}>Save WishList</button> */}
             </main>
         )
     }

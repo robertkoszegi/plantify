@@ -8,9 +8,7 @@ module.exports = {
 
 async function index(req, res) {
   try {
-    // 1. grab all items from DB, 
     let plants = await PlantModel.find({}).exec();
-    
     res.status(200).json(plants)         
   } catch(err) {
     res.status(400).json(err);

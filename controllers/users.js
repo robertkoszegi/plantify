@@ -11,7 +11,6 @@ module.exports = {
 
 async function create(req, res) {
   const hashedPassword = await bcrypt.hash(req.body.password, SALT_ROUNDS);
-  console.log(hashedPassword);
 
   try {
     const user = await User.create({
@@ -45,8 +44,6 @@ async function login(req, res) {
 }
 
 function verify(req, res) {
-  //if the middleware hits next then you know the token is valid
-  //Check the Auth in the config folder to see the data flow
   res.json(req.user);
 }
 

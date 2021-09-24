@@ -8,9 +8,7 @@ module.exports = {
 
 async function index(req, res) {
     try {
-        // 1. grab all items from DB, sorted by date descending (being fancy!)
     let wishlist = await WishlistModel.findById({user: req.user._id}).exec();
-        // 2. send to frontend
         res.status(200).json(wishlist)    
     } catch(err) {
         res.status(400).json(err);
@@ -19,7 +17,6 @@ async function index(req, res) {
 
 async function create(req, res) {
     try {
-        console.log("This is wishlist",req.body)
        let wishlist = await WishlistModel.create({
             wishLineItems: req.body.wishLineItems,
             user: req.user._id});

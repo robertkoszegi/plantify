@@ -1,14 +1,15 @@
-
-
 export default function WishListItem(props) {
     return (
         <div className="WishLineItem">
-            <div>{props.wishLineItems.item.name}</div>
-            <div>{props.wishLineItems.item.sunCond}</div>
-            {/* sunCond needs mapping to since it is an array */}
-            <div>{props.wishLineItems.item.waterFreq}</div>
-            <div>{props.wishLineItems.item.price}</div>
-            <button onClick={() => props.removeWish()}> Delete</button> 
+            <img src={`${props.wishLineItems.item.image}`} style={{width: 100}} /><br />
+            {props.wishLineItems.item.name}<br />
+            {props.wishLineItems.item.sunCond}<br />
+            {props.wishLineItems.item.waterFreq}<br />
+            Pet Friendly: {props.wishLineItems.item.petFriendly ? 'Yes' : 'No'}<br />
+            {props.wishLineItems.item.price}<br />
+            <button className="detailButton" onClick={()=>{props.handleAddToCart(props.wishLineItems.item)}}>Add to cart</button>
+
+            {/* <button onClick={() => props.removeWish()}> Delete</button>  */}
         </div>
     )
 }
