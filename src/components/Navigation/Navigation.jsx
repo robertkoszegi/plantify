@@ -13,9 +13,8 @@ render(){
       <Link to="/home"> Plants </Link>
       <Link to="/quiz"> Take the plant quiz! </Link>
       <Link to="/wishlist"> WishList </Link>
-      {/* Recommendations will eventually be added to database to sustain through user model */}
-      <Link to="/recommendations"> Recommended for you </Link>
-      <Link to="/order"> Your Order </Link>
+      <Link to="/quiz"> Recommended for you </Link>
+      <Link to="/order">Cart</Link>
       <LogOut user={this.props.user} setUserInState={this.props.setUserInState}/>
     </div>
   );

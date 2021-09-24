@@ -3,19 +3,23 @@
     text-decoration: none;  
 }
 
+.wrapper {
+    flex-direction: row;
+}
+
 .submitBtn {
     padding-top: 30px;
 }
 
-/* .Center {
+.Center {
     display: flex;
     justify-content: center;
     align-items: center;
     height:75vh;  
-} */
+}
 
-form {
-    background: #55acf3;
+.quizForm {
+    background: #90EE90;
     padding: 1.5em;
     border-radius: 1em;
     margin-top: 50px;

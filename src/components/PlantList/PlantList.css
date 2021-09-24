@@ -1,8 +1,10 @@
 .PlantList{
     margin: 50px auto;
+
   }
   
   .PlantListItem {
     padding: 50px 60px 50px 60px;
     float: left;
-  }
+  } 
+

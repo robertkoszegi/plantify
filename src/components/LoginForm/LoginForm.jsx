@@ -2,6 +2,8 @@ import { Component } from "react";
 import "./LoginForm.css";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Button from 'react-bootstrap/Button';
+import Card from 'react-bootstrap/Card';
+import Form from "react-bootstrap/Form";
 
 export default class SignUpForm extends Component {
   state = {
@@ -42,30 +44,45 @@ export default class SignUpForm extends Component {
 
   render() {
     return (
-      <div>
-        <div className="form-container" onSubmit={this.handleSubmit}>
-          <form autoComplete="off">
-            <label>Email</label>
-            <input
-              type="text"
-              name="email"
-              value={this.state.email}
-              onChange={this.handleChange}
-              required
-            />
-            <label>Password</label>
-            <input
-              type="password"
-              name="password"
-              value={this.state.password}
-              onChange={this.handleChange}
-              required
-            />
-            <Button class="btn btn-primary" type="submit">LOG IN</Button>
-          </form>
-        </div>
-        <p className="error-message">&nbsp;{this.state.error}</p>
-      </div>
+      // <div className="wrapper">
+        // <div className="Center">
+        <div className="container">
+        <Card className="loginCard">
+          <div className="form-container" onSubmit={this.handleSubmit}>
+          
+            <Form className="loginForm" autoComplete="off">
+            <h1 className="plantifyTitle">Log In to Plantify</h1>
+            <Form.Group>
+            
+              <Form.Label>Email</Form.Label>
+              <Form.Control className="loginInput"
+                type="text"
+                name="email"
+                value={this.state.email}
+                onChange={this.handleChange}
+                required
+              />
+              </Form.Group>
+              <Form.Group>
+              <Form.Label>Password</Form.Label>
+              <Form.Control className="loginInput"
+                type="password"
+                name="password"
+                value={this.state.password}
+                onChange={this.handleChange}
+                required
+              />
+              </Form.Group>
+              <Button class="btn btn-primary" type="submit">LOG IN</Button>
+            </Form>
+          </div>
+          <p className="error-message">&nbsp;{this.state.error}</p>
+          </Card>
+          </div>
+        // </div>
+      // </div>
     );
   }
 }
+
+

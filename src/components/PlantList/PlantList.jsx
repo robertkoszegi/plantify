@@ -1,6 +1,8 @@
 import React, {Component} from 'react'
 import PlantListItem from '../PlantListItem/PlantListItem'
 import './PlantList.css'
+
+
 export default class PlantList extends Component {
     render(){
         if(this.props.activeCategory){
@@ -23,21 +25,28 @@ export default class PlantList extends Component {
             )
         } else {
             return(
-            <div className="PlantList">
-                {this.props.plantListings.map(p =>
-                    <PlantListItem 
-                    key={p.name}
-                    image={p.image}  
-                    name={p.name} 
-                    waterFreq={p.waterFreq} 
-                    sunCond={p.sunCond} 
-                    price={p.price}
-                    petFriendly={p.petFriendly}
-                    category={p.category}
-                />
-                )}  
-            </div>  
+            
+                
+                <div className="PlantList">
+                    {this.props.plantListings.map(p =>
+                    
+                            <PlantListItem 
+                            key={p.name}
+                            image={p.image}  
+                            name={p.name} 
+                            waterFreq={p.waterFreq} 
+                            sunCond={p.sunCond} 
+                            price={p.price}
+                            petFriendly={p.petFriendly}
+                            category={p.category}
+                        />
+                      
+                    )}  
+                </div>
+                
             )      
         }
     }
 }
+
+
