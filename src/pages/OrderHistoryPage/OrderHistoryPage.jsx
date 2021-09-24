@@ -5,19 +5,16 @@ import PreviousOrdersList from '../../components/PreviousOrdersList/PreviousOrde
 
 class OrderHistoryPage extends React.Component {
     state = {
-
     }
-
 
     render() {
         return(
             <main className="OrderHistoryPage">
                 <nav className="Navigation">
-                <Navigation setUserInState={this.props.setUserInState}/>
+                    <Navigation setUserInState={this.props.setUserInState}/>
                 </nav>
                 <h1>OrdersPage</h1>
                 <PreviousOrdersList />
-
             </main>
         )
     }

@@ -2,11 +2,8 @@ import React from 'react';
 import Navigation from '../../components/Navigation/Navigation';
 import OrderDetails from '../../components/OrderDetails/OrderDetails';
 import PrevOrdersList from '../../components/PreviousOrdersList/PreviousOrdersList';
-// styling
 import Card from 'react-bootstrap/Card'
 import './OrderPage.css'
-
-
 
 class OrderPage extends React.Component {
     
@@ -18,17 +15,11 @@ class OrderPage extends React.Component {
         try {
             let jwt = localStorage.getItem('token')
             let fetchOrdersResponse = await fetch('/api/orders', {headers: {'Authorization': 'Bearer ' + jwt}})
-            // let fetchOrdersResponse = await fetch('/api/orders')
+            let orders = await fetchOrdersResponse.json(); 
 
-          // uncomment this line below for extra error handling:
-          // if (!fetchOrdersResponse.ok) throw new Error("Couldn't fetch orders")
-          let orders = await fetchOrdersResponse.json(); // <------- convert fetch response into a js object
-            
-          // put into state
-          console.log("orders", orders)
-          this.setState({ orderHistory: orders})
+            this.setState({ orderHistory: orders})
         } catch (err) {
-            console.error('ERROR:', err) // <-- log if error
+            console.error('ERROR:', err) 
         }
     }
 
@@ -56,8 +47,6 @@ class OrderPage extends React.Component {
                         </Card.Body>
                     </Card>
                 </div>
-                    
-                
             </main>
         )
     }

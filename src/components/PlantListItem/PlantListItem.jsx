@@ -28,6 +28,7 @@ export default class PlantListItem extends React.Component{
                     category:this.props.category
                 }
                 }}>
+
                 {/* <img src={`${this.props.image}`} alt={this.props.name} style={{width: 100}} /><br />
                 {this.props.name}</Link> */}
                 <Button variant="primary">More Details</Button></Link>
@@ -35,8 +36,6 @@ export default class PlantListItem extends React.Component{
             
         </Card.Body>
         </Card>
-
-        
 
         )
 

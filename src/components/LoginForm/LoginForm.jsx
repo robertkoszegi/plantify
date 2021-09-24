@@ -33,14 +33,11 @@ export default class SignUpForm extends Component {
 
       if (!fetchResponse.ok)
         throw new Error("Fetch failed - Bad request", fetchResponse);
-
       let token = await fetchResponse.json();
       localStorage.setItem("token", token);
-
-      const userDoc = JSON.parse(atob(token.split(".")[1])).user; // 5. Decode the token + put user document into state
+      const userDoc = JSON.parse(atob(token.split(".")[1])).user;
       this.props.setUserInState(userDoc);
     } catch (err) {
-      console.log("SignupForm error", err);
       this.setState({ error: "Sign Up Failed - Try Again" });
     }
   };

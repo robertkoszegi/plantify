@@ -10,10 +10,7 @@ import OrderPage from './pages/OrderPage/OrderPage'
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import AuthPage from './pages/AuthPage/AuthPage'
-// import SignUpForm from './components/SignUpForm/SignUpForm'
-// import LoginForm from './components/LoginForm/LoginForm'
 
-// BE SURE TO REVIEEW Protecting Routes Pt. 1 : Frontend sends token, incomplete
 
 class App extends Component {
   state = {
@@ -22,8 +19,6 @@ class App extends Component {
     wishLineItems:[],
     paid: false,
     total: 0,
-
-    
   }
 
   setUserInState = (incomingUserData) => {
@@ -39,16 +34,13 @@ class App extends Component {
     this.setState({total: totalCartPrice})
   }
 
-  // add to cart button
   handleAddToCart = (incoming_item) => {
     console.log("incoming_item:",incoming_item)
     let itemExists = this.state.lineItems.some(obj => obj.item.name === incoming_item.name)
     console.log(itemExists)
     if(itemExists) {
-      // increment qty
       this.setState({lineItems: this.state.lineItems.map(obj => obj.item.name === incoming_item.name ? {...obj,qty:obj.qty+1} : obj)}, this.updateCartTotal)
     } else {
-      // add item
       this.setState({lineItems: [...this.state.lineItems, {qty: 1,item:incoming_item}]}, this.updateCartTotal)
     }
     
@@ -66,10 +58,8 @@ class App extends Component {
   handleCheckout = async() => {
     console.log(this.state.lineItems)
     
-    // No checkout if cart is empty 
     if (this.state.lineItems.length === 0) {
       alert("Your shopping cart is empty")
-      // temp alert
     } else {
       try {
 
@@ -84,12 +74,8 @@ class App extends Component {
             total: this.state.total
           })
         })
-        // let serverResponse = await fetchResponse.json()
-        // console.log("Success:", serverResponse)
 
-        // clear line items
         this.setState({lineItems:[]})
-        // refresh cached window
         window.location.reload(false)
       } catch(err) {
         console.error("Error:", err)
@@ -103,25 +89,21 @@ componentDidMount = async () => {
 
     if (token) {
       try {
-        //We call our verify route that just uses the auth middleware to verify the token. See the server comments for more details
         const response = await fetch("/api/users/verify", {
           headers: {
             Authorization: "Bearer " + token,
           },
         });
         const data = await response.json();
-        //If the token is expired data.name will be TokenExpiredError so we throw a new error so out catch block can handle it
         if (data.name === "TokenExpiredError") throw new Error("token expired");
 
         let userDoc = JSON.parse(atob(token.split(".")[1])).user;
         this.setState({ user: userDoc });
       } catch (err) {
-        //If there is a problem with the response from the verify link, set the user to null
         this.setState({ user: null });
       }
     }
   };
-// console.log(this.state.lineItems)
   render() {
     return(
       <main className="App">
@@ -176,6 +158,7 @@ componentDidMount = async () => {
 
           <Route path='/wishlist' render={(props) => (
             <WishListPage {...props} 
+            handleAddToCart={this.handleAddToCart}
             wishLineItems={this.state.wishLineItems} 
             user={this.state.user} 
             setUserInState={this.setUserInState}/>
