@@ -7,7 +7,7 @@ export default function OrderLineItem(props) {
             <div>Price: {props.lineItem.item.price}</div>
             <div>Watering Frequency: {props.lineItem.item.waterFreq}</div>
             <div>Sun Conditions: {props.lineItem.item.sunCond}</div>
-            <div>Pet Friendly: {this.state.data.petFriendly ? 'Yes' : 'No'}</div>
+            <div>Pet Friendly: {props.lineItem.item.petFriendly ? 'Yes' : 'No'}</div>
         </div>
     )
 }
