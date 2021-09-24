@@ -1,4 +1,7 @@
 import { Component } from "react";
+import Button from 'react-bootstrap/Button';
+import "./SignUpForm.css";
+import Form from 'react-bootstrap/Form';
 
 export default class SignUpForm extends Component {
   state = {
@@ -44,45 +47,48 @@ export default class SignUpForm extends Component {
   render() {
     const disable = this.state.password !== this.state.confirm;
     return (
-      <div>
-        <div className="form-container">
-          <form autoComplete="off" onSubmit={this.handleSubmit}>
-            <label>Name</label>
-            <input
+      <div className="wrapper">
+        <div className="Center">
+          <h3>Sign Up for Plantify</h3>
+          <Form className="signUpForm" autoComplete="off" onSubmit={this.handleSubmit}>
+            <Form.Group>
+            <Form.Label>Name</Form.Label>
+            <Form.Control
               type="text"
               name="name"
               value={this.state.name}
               onChange={this.handleChange}
               required
             />
-            <label>Email</label>
-            <input
+            </Form.Group>
+            <Form.Label>Email</Form.Label>
+            <Form.Control
               type="email"
               name="email"
               value={this.state.email}
               onChange={this.handleChange}
               required
             />
-            <label>Password</label>
-            <input
+            <Form.Label>Password</Form.Label>
+            <Form.Control
               type="password"
               name="password"
               value={this.state.password}
               onChange={this.handleChange}
               required
             />
-            <label>Confirm</label>
-            <input
+            <Form.Label>Confirm</Form.Label>
+            <Form.Control
               type="password"
               name="confirm"
               value={this.state.confirm}
               onChange={this.handleChange}
               required
             />
-            <button type="submit" disabled={disable}>
+            <Button className="btn primary" type="submit" disabled={disable}>
               SIGN UP
-            </button>
-          </form>
+            </Button>
+          </Form>
         </div>
         <p className="error-message">&nbsp;{this.state.error}</p>
       </div>

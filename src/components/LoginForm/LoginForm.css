@@ -1,19 +1,41 @@
+* {
+    padding: 0;
+    margin: 0;
+    }
+
+.wrapper {
+    flex-direction: row;
+}
+
+.plantifyTitle {
+    margin-top: 10px;
+}
+
+.loginInput {
+    width: 75%;
+}
+
 .btn {
-    color: white;
-    text-decoration: none;
-    margin-left: 10px;
+    margin-left: 15px;
 }
 
 .Center {
     display: flex;
     justify-content: center;
     align-items: center;
-    height:50vh;  
-    width: 50vw;
+    height:75vh;  
 }
 
-form {
-    background: #55acf3;
-    padding: 1.5em;
-    border-radius: 1em;
+.loginCard {
+    background: #90EE90;
+    padding: 20px;
+}
+
+
+.loginForm {
+    /* background: #90EE90; */
+    /* padding: 1.5em; */
+    /* border-radius: 1em; */
+    /* margin-top: 15px; */
+    /* height: 30vh; */
 }
