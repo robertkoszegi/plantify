@@ -6,13 +6,13 @@
 
     display: flex;
     flex-flow: column;
-    /* justify-content: space-around; */
+    justify-content: space-around;
 }
 
 .cardButtonContainer {
     display: flex;
     justify-content: center;
-    background-color: aqua;
+    /* background-color: aqua; */
     align-self: flex-end;
 }
 
