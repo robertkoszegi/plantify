@@ -107,7 +107,7 @@ componentDidMount = async () => {
   render() {
     return(
       <main className="App">
-        { this.state.user ? 
+        {/* { this.state.user ?  */}
         <Switch>
           <Route path='/home' render={(props) => (
             <HomePage {...props} 
@@ -166,11 +166,11 @@ componentDidMount = async () => {
 
           <Redirect to="/home" />
         </Switch>
-          :
+          {/* :
           <AuthPage 
           user={this.state.user}
           setUserInState={this.setUserInState}/>
-          }
+          } */}
       </main>
     )
   }

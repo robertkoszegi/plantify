@@ -1,3 +1,28 @@
 .PlantListItem {
     margin: 10px;
 }
+
+.CardBody {
+
+    display: flex;
+    flex-flow: column;
+    /* justify-content: space-around; */
+}
+
+.cardButtonContainer {
+    display: flex;
+    justify-content: center;
+    background-color: aqua;
+    align-self: flex-end;
+}
+
+.cardButtonContainer > .btn {
+    margin: 0;
+    /* position: relative;
+    top: 25px; */
+}
+
+.PlantListItem {
+  padding: 10px 60px 10px 60px;
+  float: left;
+}

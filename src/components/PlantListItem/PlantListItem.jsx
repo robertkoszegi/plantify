@@ -7,9 +7,9 @@ import "./PlantListItem.css";
 export default class PlantListItem extends React.Component{
     render(){
         return(
-        <Card className="PlantListItem">
+        <Card className="PlantListItem text-center" style={{ width: '18rem', height: '22rem' }}>
 
-         <Card.Body>
+         <Card.Body className="CardBody">
          
            <Card.Text>
            <div><span><strong>{this.props.name}</strong></span></div>
@@ -27,11 +27,14 @@ export default class PlantListItem extends React.Component{
                     petFriendly:this.props.petFriendly,
                     category:this.props.category
                 }
-                }}>
+            }}>
 
-                {/* <img src={`${this.props.image}`} alt={this.props.name} style={{width: 100}} /><br />
-                {this.props.name}</Link> */}
-                <Button variant="primary">More Details</Button></Link>
+            {/* <img src={`${this.props.image}`} alt={this.props.name} style={{width: 100}} /><br />
+            {this.props.name}</Link> */}
+                <div className="cardButtonContainer">
+                    <Button id="linkButton" style={{}}>More Details</Button> 
+                </div> 
+            </Link>
 
             
         </Card.Body>
