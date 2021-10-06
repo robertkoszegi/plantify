@@ -5,7 +5,7 @@ export default function WishList(props) {
 
     return(
         <div className='wishDetails'>
-            {props.wishLineItems.map(w => <WishListItem handleAddToCart={props.handleAddToCart} removeWish={props.removeWish} wishLineItems={w}/>)}
+            {props.wishLineItems.map(w => <WishListItem handleAddToWishListDatabase={props.handleAddToWishListDatabase} handleAddToCart={props.handleAddToCart} removeWish={props.removeWish} wishLineItems={w}/>)}
 
         </div>
 

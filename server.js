@@ -26,8 +26,8 @@ app.use('/api/users', require('./routes/api/users'));
 app.use('/api/plantList', require('./routes/api/plantList.js'));
 app.use('/api/recommendations', require('./routes/api/recommendations.js'));
 app.use(require('./config/auth'));
-app.use('/api/wishlist', require('./routes/api/wishlist.js'));
 app.use('/api/orders', require('./routes/api/orders.js'));
+app.use('/api/wishlist', require('./routes/api/wishlist.js'));
 // this one is going to do double duty, serving both items and categories-related routes:
 
 

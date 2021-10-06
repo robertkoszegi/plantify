@@ -54,7 +54,23 @@ class App extends Component {
       this.setState({wishLineItems: [...this.state.wishLineItems, {qty: 1, item:incoming_item}]})
     }
   }
-  
+  handleAddToWishListDatabase = async () => {
+    try{
+        let jwt = localStorage.getItem('token')
+        let fetchResponse = await fetch("api/wishlist",{
+        method: "POST",
+        headers: {"Content-Type": "application/json", 'Authorization': jwt },
+        body: JSON.stringify({
+            wishLineItems: this.state.wishLineItems,
+        }),
+      })
+      this.setState({wishLineItems:[]})
+      } catch(err){
+          console.log(err.message)
+        console.log("Error:", err)
+      }
+  }
+
   handleCheckout = async() => {
     console.log(this.state.lineItems)
     
@@ -107,7 +123,7 @@ componentDidMount = async () => {
   render() {
     return(
       <main className="App">
-        {/* { this.state.user ?  */}
+        { this.state.user ? 
         <Switch>
           <Route path='/home' render={(props) => (
             <HomePage {...props} 
@@ -159,6 +175,7 @@ componentDidMount = async () => {
           <Route path='/wishlist' render={(props) => (
             <WishListPage {...props} 
             handleAddToCart={this.handleAddToCart}
+            handleAddToWishListDatabase={this.handleAddToWishListDatabase}
             wishLineItems={this.state.wishLineItems} 
             user={this.state.user} 
             setUserInState={this.setUserInState}/>
@@ -166,11 +183,11 @@ componentDidMount = async () => {
 
           <Redirect to="/home" />
         </Switch>
-          {/* :
+           :
           <AuthPage 
           user={this.state.user}
           setUserInState={this.setUserInState}/>
-          } */}
+          } 
       </main>
     )
   }

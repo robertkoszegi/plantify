@@ -8,6 +8,7 @@ export default function WishListItem(props) {
             Pet Friendly: {props.wishLineItems.item.petFriendly ? 'Yes' : 'No'}<br />
             {props.wishLineItems.item.price}<br />
             <button className="detailButton" onClick={()=>{props.handleAddToCart(props.wishLineItems.item)}}>Add to cart</button>
+            <button className="detailButton" onClick={() => props.handleAddToWishListDatabase()}>Save WishList</button>
 
             {/* <button onClick={() => props.removeWish()}> Delete</button>  */}
         </div>

@@ -8,7 +8,7 @@ module.exports = {
 
 async function index(req, res) {
     try {
-    let wishlist = await WishlistModel.findById({user: req.user._id}).exec();
+    let wishlist = await WishlistModel.find({user: req.user._id}).exec();
         res.status(200).json(wishlist)    
     } catch(err) {
         res.status(400).json(err);
@@ -20,7 +20,7 @@ async function create(req, res) {
        let wishlist = await WishlistModel.create({
             wishLineItems: req.body.wishLineItems,
             user: req.user._id});
-        res.status(200).json(wishlist)
+        res.status(200).json()
     } catch(err) {
         res.status(400).json(err)
     }
