@@ -9,35 +9,35 @@ export default class PlantListItem extends React.Component{
         return(
         <Card className="PlantListItem text-center" style={{ width: '18rem', height: '22rem' }}>
 
-         <Card.Body className="CardBody">
-         
-           <Card.Text>
-           <div><span><strong>{this.props.name}</strong></span></div>
-           <Card.Img variant="top" src={`${"/"+this.props.image}`} style={{width: 100, height: 100}} />
-           <div>${this.props.price}</div>
-           </Card.Text>
-            <Link to={{
-                pathname:"/details",
-                state:{
-                    image:this.props.image,
-                    name:this.props.name,
-                    waterFreq:this.props.waterFreq,
-                    sunCond:this.props.sunCond,
-                    price:this.props.price,
-                    petFriendly:this.props.petFriendly,
-                    category:this.props.category
-                }
-            }}>
-
-            {/* <img src={`${this.props.image}`} alt={this.props.name} style={{width: 100}} /><br />
-            {this.props.name}</Link> */}
-                <div className="cardButtonContainer">
-                    <Button id="linkButton" style={{}}>More Details</Button> 
-                </div> 
-            </Link>
-
+            <Card.Body className="CardBody">
             
-        </Card.Body>
+                <Card.Text>
+                    <div><strong>{this.props.name}</strong></div>
+                    <Card.Img variant="top" src={`${"/"+this.props.image}`} style={{width: 100, height: 100}} />
+                    <div>${this.props.price}</div>
+                </Card.Text>
+                <Link to={{
+                    pathname:"/details",
+                    state:{
+                        image:this.props.image,
+                        name:this.props.name,
+                        waterFreq:this.props.waterFreq,
+                        sunCond:this.props.sunCond,
+                        price:this.props.price,
+                        petFriendly:this.props.petFriendly,
+                        category:this.props.category
+                    }
+                }}>
+
+                {/* <img src={`${this.props.image}`} alt={this.props.name} style={{width: 100}} /><br />
+                {this.props.name}</Link> */}
+                    <div className="cardButtonContainer">
+                        <Button id="linkButton" style={{}}>More Details</Button> 
+                    </div> 
+                </Link>
+
+                
+            </Card.Body>
         </Card>
 
         )

@@ -84,7 +84,7 @@ class App extends Component {
     }
   }
 
-componentDidMount = async () => {
+  componentDidMount = async () => {
     const token = localStorage.getItem("token");
 
     if (token) {
@@ -104,6 +104,7 @@ componentDidMount = async () => {
       }
     }
   };
+  
   render() {
     return(
       <main className="App">

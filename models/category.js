@@ -3,6 +3,7 @@ const Schema = mongoose.Schema;
 
 const categorySchema = new Schema({
   name: String,
+  image: String,
 });
 
 let CategoryModel = mongoose.model('Category', categorySchema);
